@@ -1,0 +1,21 @@
+body{
+	background-color: black;
+}
+
+#big-name{
+	font-family: 'Press Start 2P', cursive;
+	color: #2ad7f9;
+	text-align: center;
+}
+
+#big-name h1{
+	font-size: 80px;
+	padding-top: 130px;
+	word-spacing: -40px;
+}
+
+#big-name h2{
+	margin-top: -30px;
+	word-spacing: -5px;
+}
+

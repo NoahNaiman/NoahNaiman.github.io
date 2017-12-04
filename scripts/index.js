@@ -17,7 +17,7 @@ $(document).ready(function(){
 			lifeLike:true,
 			callback: function(){
 			    setTimeout(function(){
-			    	$('body').append('<div id="jumbotron"><section id="big-name"><h1>Noah Naiman</h1><h2>COMING SOON: GO TO <a><href="https:////github.com/NoahNaiman">github.com/NoahNaiman<a></h2><br><br><h3>Hit Enter</h3></section></div>');
+			    	$('body').append('<div id="jumbotron"><section id="big-name"><h1>Noah Naiman</h1><h2>COMING SOON: GO TO <a><href="https://github.com/NoahNaiman">github.com/NoahNaiman<a></h2><h3>Hit Enter</h3></section></div>');
 			    	$('#jumbotron').css('visibility', 'visible');
 			    	$('#jumbotron h3').attr( 'id', 'hit-enter' );
 			    	canStart = true;

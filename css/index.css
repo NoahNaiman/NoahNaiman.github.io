@@ -1,5 +1,6 @@
 body{
-	background-color: black;
+	background-color: #000000;
+	overflow: hidden;
 }
 
 #terminal-head{
@@ -8,13 +9,17 @@ body{
 }
 
 #terminal-timestamp{
-	margin-top: -7px;
+	margin-top: -5px;
 	margin-left: -5px;
 }
 
 #terminal-prompt{
 	margin-top: -15px;
 	margin-left: -5px;
+}
+
+#jumbotron{
+	visibility: hidden;
 }
 
 #big-name{
@@ -36,7 +41,39 @@ body{
 
 #big-name h3{
 	color: #FF9191;
-	margin-top: 200px;
-	/*word-spacing: -5px;*/
 }
 
+.terminal-typing{
+	color: white;
+}
+
+canvas{
+	z-index: 5;
+}
+
+#text-box{
+	font-family: 'Courier';
+	background-color: white;
+	color: #000000;
+	border-radius: 5px;
+    border: 2px solid #FF9191;
+	position: absolute;
+	left: 9.5%;
+	top: 75%;
+	width: 80%;
+	height: 100px;
+	z-index: 100;
+}
+
+.sprite-speaking{
+	left: 5;
+}
+
+.door-title{
+	color: white;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 15px;
+	z-index: 100;
+	position: absolute;
+	margin-top: 1%;
+}

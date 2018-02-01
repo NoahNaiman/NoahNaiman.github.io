@@ -251,7 +251,9 @@ $(document).ready(function(){
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
 				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="left: 0%;">Under Construction!</p>');
+				$('body').prepend('<p class="door-title" style="left: 0.5%;">Under Construction!</p>');
+				$('body').prepend('<p class="door-title" style="left: 38%;">Under Construction!</p>');
+				$('body').prepend('<p class="door-title" style="right: 0%;">Under Construction!</p>');
 			}, 16000);
 	    }
 	    else if(start){

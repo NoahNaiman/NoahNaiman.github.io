@@ -251,9 +251,9 @@ $(document).ready(function(){
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
 				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="right: 0%;">About</p>');
-				$('body').prepend('<p class="door-title" style="left: 39%;">Github</p>');
-				$('body').prepend('<p class="door-title" style="left: 0.5%;">Projects</p>');
+				$('body').prepend('<p class="door-title" style="right: 2%;">About</p>');
+				$('body').prepend('<p class="door-title" style="left: 40%;">Github</p>');
+				$('body').prepend('<p class="door-title" style="left: 2%;">Projects</p>');
 			}, 16000);
 	    }
 	    else if(start){

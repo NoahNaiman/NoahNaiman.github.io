@@ -231,11 +231,28 @@ $(document).ready(function(){
 		keys = [];
 		keys[e.which] = true;
 		if(inIntro){
-			keys[13] = false;
 			keys[37] = false;
 			keys[38] = false;
 			keys[39] = true;
 			keys[40] = false;
+			if(keys[13]){
+				start = true;
+				inIntro = false;
+				Noah.moving = false;
+				Noah.x = windowWidth/2 - 55;
+				keys = [];
+				$('#text-box').remove();
+				start = true;
+				inIntro = false;
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				drawNoah(0,0);
+				drawDoor(AboutDoor, 0);
+				drawDoor(GithubDoor, 0);
+				drawDoor(ProjectsDoor, 0);
+				$('body').prepend('<p class="door-title" style="right: 4.8%;">Resume</p>');
+				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+			}
 		}
 	    if(keys[13] && !start && !inIntro){
 	    	$('#terminal-head').remove();
@@ -257,10 +274,14 @@ $(document).ready(function(){
 				drawNoah(0, 0);
 			}, 3000);
 			setTimeout(function(){
-				speak(Noah, "Hi, my name is Noah Naiman. Welcome to my personal website, it's great to meet you!", 40, 40);
+				if(inIntro){
+					speak(Noah, "Hi, my name is Noah Naiman. Welcome to my personal website, it's great to meet you!", 40, 40);
+				}
 			}, 3400);
 			setTimeout(function(){
-				speak(Noah, "In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. Have fun, and thanks for visiting!", 40, 40);
+				if(inIntro){
+					speak(Noah, "In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. Have fun, and thanks for visiting!", 40, 40);
+				}
 			}, 8400);
 			setTimeout(function(){
 				$('#text-box').remove();
@@ -269,7 +290,7 @@ $(document).ready(function(){
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
 				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="right: 4%;">Projects</p>');
+				$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
 				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 			}, 16000);

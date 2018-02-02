@@ -284,15 +284,17 @@ $(document).ready(function(){
 				}
 			}, 8400);
 			setTimeout(function(){
-				$('#text-box').remove();
-				start = true;
-				inIntro = false;
-				drawDoor(AboutDoor, 0);
-				drawDoor(GithubDoor, 0);
-				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
-				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+				if(inIntro){
+					$('#text-box').remove();
+					start = true;
+					inIntro = false;
+					drawDoor(AboutDoor, 0);
+					drawDoor(GithubDoor, 0);
+					drawDoor(ProjectsDoor, 0);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+				}
 			}, 16000);
 	    }
 	    else if(start){

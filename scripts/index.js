@@ -24,6 +24,8 @@ $(document).ready(function(){
 	var start = false;
 	var context;
     var keys = [];
+    var mouseX = 0;
+    var mouseY = 0;
 
 	//Window constraints control
 	var windowWidth = $(window).width();
@@ -85,10 +87,10 @@ $(document).ready(function(){
 		counter: 0
 	};
 
-	//'Projects' door
-	var ProjectsDoor = {
-		name: "projectsDoor",
-		function: "Projects",
+	//'Resume' door
+	var ResumeDoor = {
+		name: "ResumeDoor",
+		function: "Resume",
 		sprites: [],
 		x: windowWidth - 160,
 		y: 50,
@@ -110,7 +112,7 @@ $(document).ready(function(){
 	for(var i = 0; i < doorImages.length; i++) {
 		var img = new Image();
 		img.src = doorImages[i];
-		ProjectsDoor.sprites.push(img);
+		ResumeDoor.sprites.push(img);
 	}
 
 	function drawDoor(door, counter){
@@ -160,33 +162,33 @@ $(document).ready(function(){
 					GithubDoor.counter = 0;
 				}
 			}
-			else if(Noah.x+58 >= ProjectsDoor.x && Noah.x <= (ProjectsDoor.x + ProjectsDoor.sprites[0].width/2)){
+			else if(Noah.x+58 >= ResumeDoor.x && Noah.x <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2)){
 				if(row != 0){
 					if(Noah.y > windowHeight/2){
-						ProjectsDoor.counter = 0;
+						ResumeDoor.counter = 0;
 					}
 					else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
-						ProjectsDoor.counter = 1;
+						ResumeDoor.counter = 1;
 					}
 					else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
-						ProjectsDoor.counter = 2;
+						ResumeDoor.counter = 2;
 					}
 					else{
-						ProjectsDoor.counter = 3;
+						ResumeDoor.counter = 3;
 					}
 				}
 				else{
-					ProjectsDoor.counter = 0;
+					ResumeDoor.counter = 0;
 				}
 			}
 			else{
 				AboutDoor.counter = 0;
 				GithubDoor.counter = 0;
-				ProjectsDoor.counter = 0;
+				ResumeDoor.counter = 0;
 			}
 			drawDoor(AboutDoor, AboutDoor.counter);
 			drawDoor(GithubDoor, GithubDoor.counter);
-			drawDoor(ProjectsDoor, ProjectsDoor.counter);
+			drawDoor(ResumeDoor, ResumeDoor.counter);
 		}
 		if(Noah.x > windowWidth){
 			Noah.x = -30;
@@ -247,7 +249,7 @@ $(document).ready(function(){
 				drawNoah(0,0);
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
-				drawDoor(ProjectsDoor, 0);
+				drawDoor(ResumeDoor, 0);
 				$('body').prepend('<p class="door-title" style="right: 4.7%;">Resume</p>');
 				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 				$('body').prepend('<p class="door-title" style="left: 6.2%;">About</p>');
@@ -289,7 +291,7 @@ $(document).ready(function(){
 					inIntro = false;
 					drawDoor(AboutDoor, 0);
 					drawDoor(GithubDoor, 0);
-					drawDoor(ProjectsDoor, 0);
+					drawDoor(ResumeDoor, 0);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
 					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
@@ -313,6 +315,31 @@ $(document).ready(function(){
 				}
 			}
 		}
+	});
+
+	$(document).mousemove(function(e){
+		mouseX = e.pageX;
+		mouseY = e.pageY;
+		if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+			AboutDoor.counter = 3;
+			GithubDoor.counter = 0;
+			ResumeDoor.counter = 0;
+		}
+		else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+			AboutDoor.counter = 0;
+			GithubDoor.counter = 3;
+			ResumeDoor.counter = 0;
+		}
+		else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+			AboutDoor.counter = 0;
+			GithubDoor.counter = 0;
+			ResumeDoor.counter = 3;
+		}
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		drawDoor(AboutDoor, AboutDoor.counter);
+		drawDoor(GithubDoor, GithubDoor.counter);
+		drawDoor(ResumeDoor, ResumeDoor.counter);
+		context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 	});
 
 	animate();

@@ -230,6 +230,13 @@ $(document).ready(function(){
 	$(document).keydown(function(e){
 		keys = [];
 		keys[e.which] = true;
+		if(inIntro){
+			keys[13] = false;
+			keys[37] = false;
+			keys[38] = false;
+			keys[39] = true;
+			keys[40] = false;
+		}
 	    if(keys[13] && !start && !inIntro){
 	    	$('#terminal-head').remove();
 			$('#jumbotron').remove();
@@ -237,9 +244,8 @@ $(document).ready(function(){
 			context = document.getElementById('canvas').getContext('2d');
 			loadNoahSprites()
 			inIntro = true;
-			keys = [];
 	    }
-	    if(!start && inIntro){
+	    if(keys[13] && !start && inIntro){
 	    	speak(Noah, "Ooh a visitor!", 70, 30);
 			Noah.moving = true;
 			keys[39] = true;
@@ -268,7 +274,7 @@ $(document).ready(function(){
 				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 			}, 16000);
 	    }
-	    else if(start || inIntro){
+	    else if(start){
 	    	if(e.which >= 37 && e.which <= 40){
 	    		Noah.moving = true;
 	    	}

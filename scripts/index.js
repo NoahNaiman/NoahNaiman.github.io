@@ -40,10 +40,6 @@ $(document).ready(function(){
 		walkCounter: 5,
 		x: -900,
 		y: windowHeight/3,
-		xBoundaryLeft: 20,
-		xBoundaryRight: windowWidth-20, 
-		yBoundaryTop: 50,
-		yBoundaryBottom: windowHeight-20, 
 		velocityX: 0,
 		velocityY: 0,
 		friction: 0.9,
@@ -155,6 +151,9 @@ $(document).ready(function(){
 					}
 					else{
 						GithubDoor.counter = 3;
+						if(Noah.y == 60){
+							window.open('https://github.com/NoahNaiman');
+						}
 					}
 				}
 				else{
@@ -198,8 +197,8 @@ $(document).ready(function(){
 		if(Noah.y > windowHeight-90){
 			Noah.y = windowHeight-90;
 		}
-		else if(Noah.y < 50){
-			Noah.y = 50;
+		else if(Noah.y < 60){
+			Noah.y = 60;
 		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}

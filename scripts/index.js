@@ -9,6 +9,22 @@ $(document).ready(function(){
 		window.requestAnimationFrame = requestAnimationFrame;
 	})();
 
+	//Terminal Header variables
+	var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	var date = new Date();
+	var day = date.getDate();
+	var dayName = date.getDay();
+	var month = date.getMonth();
+	var time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+	var terminalTimestamp = 'Last login: ' + days[dayName-1] + ' ' + months[month] +  ' ' + day + ' ' + time + ' on ttys000';
+
+	//Website flow control
+	var inIntro = false;
+	var start = false;
+	var context;
+    var keys = [];
+
 	//Window constraints control
 	var windowWidth = $(window).width();
 	var windowHeight = $(window).height();
@@ -179,25 +195,16 @@ $(document).ready(function(){
 		else if(start && Noah.x < -50){
 			Noah.x = windowWidth;
 		}
+		if(Noah.y > windowHeight-90){
+			Noah.y = windowHeight-90;
+		}
+		else if(Noah.y < 50){
+			Noah.y = 50;
+		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}
 
-	//Terminal Header variables
-	var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	var date = new Date();
-	var day = date.getDate();
-	var dayName = date.getDay();
-	var month = date.getMonth();
-	var time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-	var terminalTimestamp = 'Last login: ' + days[dayName-1] + ' ' + months[month] +  ' ' + day + ' ' + time + ' on ttys000';
-
-	//Website flow control
-	var start = false;
-	var context;
-    var keys = [];
-
-	if(!start){
+	if(!start && !inIntro){
 		$('#terminal-timestamp').text(terminalTimestamp);
 
 		$('.terminal-typing').typeIt({
@@ -207,7 +214,7 @@ $(document).ready(function(){
 			lifeLike:true,
 			callback: function(){
 			    setTimeout(function(){
-			    	if(!start){
+			    	if(!start && !inIntro){
 			    		$('body').append('<div id="jumbotron"><section id="big-name"><h1>Noah Naiman</h1><h2>THIS SITE, IT\'S PERSONAL</h2><br><br><br><br><br><br><br><h3>Hit Enter</h3></section></div>');
 			    		$('#jumbotron').css('visibility', 'visible');
 			    		$('#jumbotron h3').attr( 'id', 'hit-enter' );
@@ -223,13 +230,17 @@ $(document).ready(function(){
 	$(document).keydown(function(e){
 		keys = [];
 		keys[e.which] = true;
-	    if(keys[13] && !start){
+	    if(keys[13] && !start && !inIntro){
 	    	$('#terminal-head').remove();
 			$('#jumbotron').remove();
 			$('body').append('<canvas id="canvas" height="' + windowHeight + '" width="' + windowWidth + '"></canvas>');
 			context = document.getElementById('canvas').getContext('2d');
 			loadNoahSprites()
-			speak(Noah, "Ooh a visitor!", 70, 30);
+			inIntro = true;
+			keys = [];
+	    }
+	    if(!start && inIntro){
+	    	speak(Noah, "Ooh a visitor!", 70, 30);
 			Noah.moving = true;
 			keys[39] = true;
 			setTimeout(function(){
@@ -248,15 +259,16 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$('#text-box').remove();
 				start = true;
+				inIntro = false;
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
 				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="right: 2%;">About</p>');
-				$('body').prepend('<p class="door-title" style="left: 40%;">Github</p>');
-				$('body').prepend('<p class="door-title" style="left: 2%;">Projects</p>');
+				$('body').prepend('<p class="door-title" style="right: 4%;">Projects</p>');
+				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 			}, 16000);
 	    }
-	    else if(start){
+	    else if(start || inIntro){
 	    	if(e.which >= 37 && e.which <= 40){
 	    		Noah.moving = true;
 	    	}
@@ -285,7 +297,6 @@ $(document).ready(function(){
 	}
 
 	var moveNoah = function(){
-		//requestAnimationFrame(moveNoah);
 		var row;
 		var col;
 		if(keys[37]){

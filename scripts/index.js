@@ -318,28 +318,48 @@ $(document).ready(function(){
 	});
 
 	$(document).mousemove(function(e){
-		mouseX = e.pageX;
-		mouseY = e.pageY;
-		if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
-			AboutDoor.counter = 3;
-			GithubDoor.counter = 0;
-			ResumeDoor.counter = 0;
+		if(start){
+			mouseX = e.pageX;
+			mouseY = e.pageY;
+			if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+				AboutDoor.counter = 3;
+				GithubDoor.counter = 0;
+				ResumeDoor.counter = 0;
+			}
+			else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+				AboutDoor.counter = 0;
+				GithubDoor.counter = 3;
+				ResumeDoor.counter = 0;
+			}
+			else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+				AboutDoor.counter = 0;
+				GithubDoor.counter = 0;
+				ResumeDoor.counter = 3;
+			}
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			drawDoor(AboutDoor, AboutDoor.counter);
+			drawDoor(GithubDoor, GithubDoor.counter);
+			drawDoor(ResumeDoor, ResumeDoor.counter);
+			context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 		}
-		else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
-			AboutDoor.counter = 0;
-			GithubDoor.counter = 3;
-			ResumeDoor.counter = 0;
+	});
+
+	$(document).mouseup(function(){
+		if(start){
+			// if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+			// 	AboutDoor.counter = 3;
+			// 	GithubDoor.counter = 0;
+			// 	ResumeDoor.counter = 0;
+			// }
+			if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+				window.open('https://github.com/NoahNaiman');
+			}
+			// else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+			// 	AboutDoor.counter = 0;
+			// 	GithubDoor.counter = 0;
+			// 	ResumeDoor.counter = 3;
+			// }
 		}
-		else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
-			AboutDoor.counter = 0;
-			GithubDoor.counter = 0;
-			ResumeDoor.counter = 3;
-		}
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		drawDoor(AboutDoor, AboutDoor.counter);
-		drawDoor(GithubDoor, GithubDoor.counter);
-		drawDoor(ResumeDoor, ResumeDoor.counter);
-		context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 	});
 
 	animate();

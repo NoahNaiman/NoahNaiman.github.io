@@ -249,7 +249,7 @@ $(document).ready(function(){
 				drawDoor(AboutDoor, 0);
 				drawDoor(GithubDoor, 0);
 				drawDoor(ProjectsDoor, 0);
-				$('body').prepend('<p class="door-title" style="right: 4.8%;">Resume</p>');
+				$('body').prepend('<p class="door-title" style="right: 4.9%;">Resume</p>');
 				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 			}

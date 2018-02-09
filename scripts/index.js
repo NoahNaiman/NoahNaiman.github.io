@@ -22,6 +22,7 @@ $(document).ready(function(){
 	//Website flow control
 	var inIntro = false;
 	var start = false;
+	var room = 0;
 	var context;
     var keys = [];
     var mouseX = 0;
@@ -121,74 +122,88 @@ $(document).ready(function(){
 
 	function drawNoah(row, col){
 		if(start){
-			if(Noah.x+58 >= AboutDoor.x && Noah.x <= (AboutDoor.x + AboutDoor.sprites[0].width/2)){
-				if(row != 0){
-					if(Noah.y > windowHeight/2){
-						AboutDoor.counter = 0;
-					}
-					else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
-						AboutDoor.counter = 1;
-					}
-					else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
-						AboutDoor.counter = 2;
+			if(room == 0){
+				if(Noah.x+58 >= AboutDoor.x && Noah.x <= (AboutDoor.x + AboutDoor.sprites[0].width/2)){
+					if(row != 0){
+						if(Noah.y > windowHeight/2){
+							AboutDoor.counter = 0;
+						}
+						else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
+							AboutDoor.counter = 1;
+						}
+						else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
+							AboutDoor.counter = 2;
+						}
+						else{
+							AboutDoor.counter = 3;
+							if(Noah.y == 60){
+								room = 1;
+								$('p.door-title').remove();
+								context.clearRect(0, 0, canvas.width, canvas.height);
+								$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
+								$('body').append('<div id="about-me"><p></p></div>');
+							}
+						}
 					}
 					else{
-						AboutDoor.counter = 3;
+						AboutDoor.counter = 0;
+					}
+				}
+				else if(Noah.x+58 >= GithubDoor.x && Noah.x <= (GithubDoor.x + GithubDoor.sprites[0].width/2)){
+					if(row != 0){
+						if(Noah.y > windowHeight/2){
+							GithubDoor.counter = 0;
+						}
+						else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
+							GithubDoor.counter = 1;
+						}
+						else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
+							GithubDoor.counter = 2;
+						}
+						else{
+							GithubDoor.counter = 3;
+							if(Noah.y == 60){
+								window.open('https://github.com/NoahNaiman');
+								room = 2;
+
+							}
+						}
+					}
+					else{
+						GithubDoor.counter = 0;
+					}
+				}
+				else if(Noah.x+58 >= ResumeDoor.x && Noah.x <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2)){
+					if(row != 0){
+						if(Noah.y > windowHeight/2){
+							ResumeDoor.counter = 0;
+						}
+						else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
+							ResumeDoor.counter = 1;
+						}
+						else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
+							ResumeDoor.counter = 2;
+						}
+						else{
+							ResumeDoor.counter = 3;
+							room = 3;
+						}
+					}
+					else{
+						ResumeDoor.counter = 0;
 					}
 				}
 				else{
 					AboutDoor.counter = 0;
-				}
-			}
-			else if(Noah.x+58 >= GithubDoor.x && Noah.x <= (GithubDoor.x + GithubDoor.sprites[0].width/2)){
-				if(row != 0){
-					if(Noah.y > windowHeight/2){
-						GithubDoor.counter = 0;
-					}
-					else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
-						GithubDoor.counter = 1;
-					}
-					else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
-						GithubDoor.counter = 2;
-					}
-					else{
-						GithubDoor.counter = 3;
-						if(Noah.y == 60){
-							window.open('https://github.com/NoahNaiman');
-						}
-					}
-				}
-				else{
 					GithubDoor.counter = 0;
-				}
-			}
-			else if(Noah.x+58 >= ResumeDoor.x && Noah.x <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2)){
-				if(row != 0){
-					if(Noah.y > windowHeight/2){
-						ResumeDoor.counter = 0;
-					}
-					else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
-						ResumeDoor.counter = 1;
-					}
-					else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
-						ResumeDoor.counter = 2;
-					}
-					else{
-						ResumeDoor.counter = 3;
-					}
-				}
-				else{
 					ResumeDoor.counter = 0;
 				}
+				if(room == 0){
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+				}
 			}
-			else{
-				AboutDoor.counter = 0;
-				GithubDoor.counter = 0;
-				ResumeDoor.counter = 0;
-			}
-			drawDoor(AboutDoor, AboutDoor.counter);
-			drawDoor(GithubDoor, GithubDoor.counter);
-			drawDoor(ResumeDoor, ResumeDoor.counter);
 		}
 		if(Noah.x > windowWidth){
 			Noah.x = -30;
@@ -319,46 +334,57 @@ $(document).ready(function(){
 
 	$(document).mousemove(function(e){
 		if(start){
-			mouseX = e.pageX;
-			mouseY = e.pageY;
-			if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
-				AboutDoor.counter = 3;
-				GithubDoor.counter = 0;
-				ResumeDoor.counter = 0;
+			if(room == 0){
+				mouseX = e.pageX;
+				mouseY = e.pageY;
+				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+					AboutDoor.counter = 3;
+					GithubDoor.counter = 0;
+					ResumeDoor.counter = 0;
+				}
+				else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+					AboutDoor.counter = 0;
+					GithubDoor.counter = 3;
+					ResumeDoor.counter = 0;
+				}
+				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+					AboutDoor.counter = 0;
+					GithubDoor.counter = 0;
+					ResumeDoor.counter = 3;
+				}
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				drawDoor(AboutDoor, AboutDoor.counter);
+				drawDoor(GithubDoor, GithubDoor.counter);
+				drawDoor(ResumeDoor, ResumeDoor.counter);
+				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 			}
-			else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
-				AboutDoor.counter = 0;
-				GithubDoor.counter = 3;
-				ResumeDoor.counter = 0;
-			}
-			else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
-				AboutDoor.counter = 0;
-				GithubDoor.counter = 0;
-				ResumeDoor.counter = 3;
-			}
-			context.clearRect(0, 0, canvas.width, canvas.height);
-			drawDoor(AboutDoor, AboutDoor.counter);
-			drawDoor(GithubDoor, GithubDoor.counter);
-			drawDoor(ResumeDoor, ResumeDoor.counter);
-			context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 		}
 	});
 
-	$(document).mouseup(function(){
+	$(document).mousedown(function(){
 		if(start){
-			// if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
-			// 	AboutDoor.counter = 3;
-			// 	GithubDoor.counter = 0;
-			// 	ResumeDoor.counter = 0;
-			// }
-			if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
-				window.open('https://github.com/NoahNaiman');
+			if(room == 0){
+				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+					Noah.y = 500;
+					AboutDoor.counter = 3;
+					GithubDoor.counter = 0;
+					ResumeDoor.counter = 0;
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+				}
+				if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+					Noah.y = 500;
+					window.open('https://github.com/NoahNaiman');
+				}
+				// else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+				// 	AboutDoor.counter = 0;
+				// 	GithubDoor.counter = 0;
+				// 	ResumeDoor.counter = 3;
+				// }
 			}
-			// else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
-			// 	AboutDoor.counter = 0;
-			// 	GithubDoor.counter = 0;
-			// 	ResumeDoor.counter = 3;
-			// }
 		}
 	});
 

@@ -48,7 +48,8 @@ body{
 }
 
 canvas{
-	z-index: 5;
+	z-index: 500;
+	position: relative;
 }
 
 #text-box{
@@ -76,4 +77,14 @@ canvas{
 	z-index: 100;
 	position: absolute;
 	margin-top: 1%;
+}
+
+#big-picture{
+	border-radius: 70%;
+	height: 284.8px;
+	width: 334.6px;
+	top: 50px;
+	left: 150px;
+	z-index: 10;
+	position: absolute;
 }

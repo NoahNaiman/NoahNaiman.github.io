@@ -136,7 +136,7 @@ $(document).ready(function(){
 						}
 						else{
 							AboutDoor.counter = 3;
-							if(Noah.y == 60){
+							if(Noah.y <= 70){
 								Noah.y = 550;
 								room = 1;
 								$('p.door-title').remove();
@@ -175,7 +175,7 @@ $(document).ready(function(){
 						}
 						else{
 							GithubDoor.counter = 3;
-							if(Noah.y == 60){
+							if(Noah.y <= 70){
 								window.open('https://github.com/NoahNaiman');
 							}
 						}

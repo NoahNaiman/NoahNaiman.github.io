@@ -218,7 +218,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 1){
-				if(Noah.x >= 50 && Noah.x <= 1730 && Noah.y >= 630){
+				if(Noah.x >= 10 && Noah.x <= 140 && Noah.y >= 630){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
@@ -426,7 +426,7 @@ $(document).ready(function(){
 			}
 			else if(room == 1){
 				console.log($('#big-picture').position());
-				if(mouseX >= 50 && mouseX <= 170 && mouseY >= 680){
+				if(mouseX >= 10 && mouseX <= 140 && mouseY >= 680){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();

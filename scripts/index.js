@@ -137,8 +137,8 @@ $(document).ready(function(){
 						else{
 							AboutDoor.counter = 3;
 							if(Noah.y <= 70){
-								Noah.y = 550;
 								room = 1;
+								Noah.y = 550;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
 											$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
@@ -197,6 +197,16 @@ $(document).ready(function(){
 						}
 						else{
 							ResumeDoor.counter = 3;
+							if(Noah.y <= 70){
+								room = 3;
+								Noah.y = 550;
+								Noah.x = 70;
+								$('p.door-title').remove();
+								context.clearRect(0, 0, canvas.width, canvas.height);
+								$('body').css("background-color", "white");
+								$('body').append('<p class="exit-sign">Exit</p>');
+								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+							}
 						}
 					}
 					else{
@@ -221,6 +231,23 @@ $(document).ready(function(){
 					$('.exit-sign').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					Noah.y = 75;
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					room = 0;
+				}
+			}
+			else if(room == 3){
+				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 630){
+					$('.exit-sign').remove();
+					$('body').css('background-color', '#000000');
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					Noah.y = 75;
+					Noah.x = ResumeDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
 					drawDoor(GithubDoor, GithubDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
@@ -392,8 +419,9 @@ $(document).ready(function(){
 		if(start){
 			if(room == 0){
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
-					Noah.y = 550;
 					room = 1;
+					Noah.y = 550;
+					Noah.x = 70;
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
@@ -411,22 +439,28 @@ $(document).ready(function(){
 					$('body').append('<p class="exit-sign">Exit</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
-				if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+				else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
 					window.open('https://github.com/NoahNaiman');
 				}
-				// else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
-				// 	AboutDoor.counter = 0;
-				// 	GithubDoor.counter = 0;
-				// 	ResumeDoor.counter = 3;
-				// }
+				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+					room = 3;
+					Noah.y = 550;
+					Noah.x = 70;
+					$('p.door-title').remove();
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					$('body').css("background-color", "white");
+					$('body').append('<p class="exit-sign">Exit</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+				}
 			}
 			else if(room == 1){
-				console.log($('#big-picture').position());
 				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 680){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
+					Noah.y = 75;
+					Noah.x = AboutDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
 					drawDoor(GithubDoor, GithubDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
@@ -440,6 +474,21 @@ $(document).ready(function(){
 					speak("Hey that's me! I'm looking good!", 40, 40);
 					setTimeout(function(){$('#text-box').remove();}, 3000);
 				}
+			}
+			else if(room == 3){
+				$('.exit-sign').remove();
+				$('body').css('background-color', '#000000');
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				Noah.y = 75;
+				Noah.x = ResumeDoor.x + 15;
+				drawDoor(AboutDoor, AboutDoor.counter);
+				drawDoor(GithubDoor, GithubDoor.counter);
+				drawDoor(ResumeDoor, ResumeDoor.counter);
+				$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+				room = 0;
 			}
 		}
 	});

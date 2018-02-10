@@ -218,7 +218,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 1){
-				if(Noah.x >= 50 && Noah.x <= 170 && Noah.y >= 630){
+				if(Noah.x >= 50 && Noah.x <= 1730 && Noah.y >= 630){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
@@ -309,7 +309,7 @@ $(document).ready(function(){
 			inIntro = true;
 	    }
 	    if(keys[13] && !start && inIntro){
-	    	speak(Noah, "Ooh a visitor!", 70, 30);
+	    	speak("Ooh a visitor!", 70, 30);
 			Noah.moving = true;
 			keys[39] = true;
 			setTimeout(function(){
@@ -321,12 +321,12 @@ $(document).ready(function(){
 			}, 3000);
 			setTimeout(function(){
 				if(inIntro){
-					speak(Noah, "Hi, my name is Noah Naiman. Welcome to my personal website, it's great to meet you!", 40, 40);
+					speak("Hi, my name is Noah Naiman. Welcome to my personal website, it's great to meet you!", 40, 40);
 				}
 			}, 3400);
 			setTimeout(function(){
 				if(inIntro){
-					speak(Noah, "In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. Have fun, and thanks for visiting!", 40, 40);
+					speak("In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. Have fun, and thanks for visiting!", 40, 40);
 				}
 			}, 8400);
 			setTimeout(function(){
@@ -425,6 +425,7 @@ $(document).ready(function(){
 				// }
 			}
 			else if(room == 1){
+				console.log($('#big-picture').position());
 				if(mouseX >= 50 && mouseX <= 170 && mouseY >= 680){
 					$('#big-picture').remove();
 					$('#about-me').remove();
@@ -438,6 +439,10 @@ $(document).ready(function(){
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					room = 0;
+				}
+				else if(mouseX >= 90 && mouseX <= 424 && mouseY >= 50 && mouseY <= 334.8){
+					speak("Hey that's me! I'm looking good!", 40, 40);
+					setTimeout(function(){$('#text-box').remove();}, 3000);
 				}
 			}
 		}
@@ -571,7 +576,7 @@ $(document).ready(function(){
 		drawNoah(row, 0);
 	}
 
-	function speak(sprite, words, speed, delay){
+	function speak(words, speed, delay){
 		$('#text-box').remove();
 		$('body').prepend('<div id="text-box"><p><span class="sprite-speaking"></span></p></div>');
 		$('.sprite-speaking').typeIt({
@@ -579,11 +584,6 @@ $(document).ready(function(){
 				startDelay: delay,
 				speed: speed,
 				lifeLike: false,
-				callback: function(){
-				    setTimeout(function(){
-				    	$('.text-box').remove();
-				    }, 1550);
-				}
 			});
 
 	}

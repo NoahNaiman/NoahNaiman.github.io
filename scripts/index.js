@@ -146,7 +146,7 @@ $(document).ready(function(){
 												Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 												Graduating class of 2020!<br><br>\
 												My passion is Cyber Security.<br><br>\
-												But my interests include Genetic Algorithms, Machine Learning, and Software Development.<br><br>\
+												But my interests include IOT Vulnerabilites, Genetic Algorithms, and Machine Learning.<br><br>\
 												I\'m from Denver, but I live in Boston.<br><br>\
 												Hobbies include writing, boxing, and making bad jokes.<br><br>\
 												Currently looking for summer employment.<br><br>\
@@ -402,7 +402,7 @@ $(document).ready(function(){
 							Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 							Graduating class of 2020!<br><br>\
 							My passion is Cyber Security.<br><br>\
-							But my interests include Genetic Algorithms, Machine Learning, and Software Development.<br><br>\
+							But my interests include IOT Vulnerabilites, Genetic Algorithms, and Machine Learning.<br><br>\
 							I\'m from Denver, but I live in Boston.<br><br>\
 							Hobbies include writing, boxing, and making bad jokes.<br><br>\
 							Currently looking for summer employment.<br><br>\

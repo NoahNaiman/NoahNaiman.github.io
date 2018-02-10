@@ -177,8 +177,6 @@ $(document).ready(function(){
 							GithubDoor.counter = 3;
 							if(Noah.y == 60){
 								window.open('https://github.com/NoahNaiman');
-								room = 2;
-
 							}
 						}
 					}
@@ -415,7 +413,6 @@ $(document).ready(function(){
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
 				if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
-					Noah.y = 500;
 					window.open('https://github.com/NoahNaiman');
 				}
 				// else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){

@@ -137,11 +137,24 @@ $(document).ready(function(){
 						else{
 							AboutDoor.counter = 3;
 							if(Noah.y == 60){
+								Noah.y = 550;
 								room = 1;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
-								$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
-								$('body').append('<div id="about-me"><p></p></div>');
+											$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
+											$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
+												Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
+												Graduating class of 2020!<br><br>\
+												My passion is Cyber Security.<br><br>\
+												But my interests include Genetic Algorithms, Machine Learning, and Software Development.<br><br>\
+												I\'m from Denver, but I live in Boston.<br><br>\
+												Hobbies include writing, boxing, and making bad jokes.<br><br>\
+												Currently looking for summer employment.<br><br>\
+												I can be reached at nnaiman@bu.edu<br><br>\
+												<a style="color: #2ad7f9;">\"You\'re only given a little spark of maddness. You mustn\'t lose it.\"<br><br>\
+												&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
+											$('body').append('<p class="exit-sign">Exit</p>');
+								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
 						}
 					}
@@ -202,6 +215,23 @@ $(document).ready(function(){
 					drawDoor(AboutDoor, AboutDoor.counter);
 					drawDoor(GithubDoor, GithubDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
+				}
+			}
+			else if(room == 1){
+				if(Noah.x >= 50 && Noah.x <= 170 && Noah.y >= 630){
+					$('#big-picture').remove();
+					$('#about-me').remove();
+					$('.exit-sign').remove();
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					Noah.y = 75;
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					room = 0;
 				}
 			}
 		}
@@ -334,9 +364,9 @@ $(document).ready(function(){
 
 	$(document).mousemove(function(e){
 		if(start){
+			mouseX = e.pageX;
+			mouseY = e.pageY;
 			if(room == 0){
-				mouseX = e.pageX;
-				mouseY = e.pageY;
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
 					AboutDoor.counter = 3;
 					GithubDoor.counter = 0;
@@ -365,14 +395,23 @@ $(document).ready(function(){
 		if(start){
 			if(room == 0){
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
-					Noah.y = 500;
-					AboutDoor.counter = 3;
-					GithubDoor.counter = 0;
-					ResumeDoor.counter = 0;
+					Noah.y = 550;
+					room = 1;
+					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
-					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
-					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
+					$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
+							Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
+							Graduating class of 2020!<br><br>\
+							My passion is Cyber Security.<br><br>\
+							But my interests include Genetic Algorithms, Machine Learning, and Software Development.<br><br>\
+							I\'m from Denver, but I live in Boston.<br><br>\
+							Hobbies include writing, boxing, and making bad jokes.<br><br>\
+							Currently looking for summer employment.<br><br>\
+							I can be reached at nnaiman@bu.edu<br><br>\
+							<a style="color: #2ad7f9;">\"You\'re only given a little spark of maddness. You mustn\'t lose it.\"<br><br>\
+							&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
+					$('body').append('<p class="exit-sign">Exit</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
 				if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
@@ -384,6 +423,22 @@ $(document).ready(function(){
 				// 	GithubDoor.counter = 0;
 				// 	ResumeDoor.counter = 3;
 				// }
+			}
+			else if(room == 1){
+				if(mouseX >= 50 && mouseX <= 170 && mouseY >= 680){
+					$('#big-picture').remove();
+					$('#about-me').remove();
+					$('.exit-sign').remove();
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					room = 0;
+				}
 			}
 		}
 	});

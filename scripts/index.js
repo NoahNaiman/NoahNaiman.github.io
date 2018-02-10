@@ -197,7 +197,6 @@ $(document).ready(function(){
 						}
 						else{
 							ResumeDoor.counter = 3;
-							room = 3;
 						}
 					}
 					else{

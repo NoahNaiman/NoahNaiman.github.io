@@ -151,7 +151,7 @@ $(document).ready(function(){
 												Hobbies include writing, boxing, and making bad jokes.<br><br>\
 												Currently looking for summer employment.<br><br>\
 												I can be reached at nnaiman@bu.edu<br><br>\
-												<a style="color: #2ad7f9;">\"You\'re only given a little spark of maddness. You mustn\'t lose it.\"<br><br>\
+												<a style="color: #2ad7f9;">\"You\'re only given a little spark of madness. You mustn\'t lose it.\"<br><br>\
 												&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
 											$('body').append('<p class="exit-sign">Exit</p>');
 								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
@@ -444,7 +444,7 @@ $(document).ready(function(){
 							Hobbies include writing, boxing, and making bad jokes.<br><br>\
 							Currently looking for summer employment.<br><br>\
 							I can be reached at nnaiman@bu.edu<br><br>\
-							<a style="color: #2ad7f9;">\"You\'re only given a little spark of maddness. You mustn\'t lose it.\"<br><br>\
+							<a style="color: #2ad7f9;">\"You\'re only given a little spark of madness. You mustn\'t lose it.\"<br><br>\
 							&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
 					$('body').append('<p class="exit-sign">Exit</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);

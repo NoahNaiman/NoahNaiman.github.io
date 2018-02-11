@@ -310,6 +310,8 @@ $(document).ready(function(){
 				inIntro = false;
 				Noah.moving = false;
 				Noah.x = windowWidth/2 - 55;
+				Noah.velocityY = 0;
+				Noah.velocityX = 0;
 				keys = [];
 				$('#text-box').remove();
 				start = true;
@@ -412,6 +414,14 @@ $(document).ready(function(){
 				drawDoor(ResumeDoor, ResumeDoor.counter);
 				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 			}
+			// if(room == 1){
+			// 	if (mouseX >= 90 && mouseX <= 424 && mouseY >= 50 && mouseY <= 334.8){
+			// 		$('selector').css( 'cursor', 'pointer' );
+			// 	}
+			// 	else{
+			// 		$('selector').css( 'cursor', 'pointer' );
+			// 	}
+			// }
 		}
 	});
 

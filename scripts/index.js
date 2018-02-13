@@ -402,19 +402,25 @@ $(document).ready(function(){
 			mouseY = e.pageY;
 			if(room == 0){
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
+					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 3;
 					GithubDoor.counter = 0;
 					ResumeDoor.counter = 0;
 				}
 				else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 0;
 					GithubDoor.counter = 3;
 					ResumeDoor.counter = 0;
 				}
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 0;
 					GithubDoor.counter = 0;
 					ResumeDoor.counter = 3;
+				}
+				else{
+					$('body').css( 'cursor', 'default' );
 				}
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				drawDoor(AboutDoor, AboutDoor.counter);
@@ -430,9 +436,6 @@ $(document).ready(function(){
 				else{
 					$('body').css( 'cursor', 'default' );
 				}
-			}
-			else{
-				$('body').css( 'cursor', 'default' );
 			}
 		}
 	});

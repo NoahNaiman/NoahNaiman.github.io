@@ -205,7 +205,7 @@ $(document).ready(function(){
 								context.clearRect(0, 0, canvas.width, canvas.height);
 								$('body').css("background-color", "white");
 								$('body').append('<p class="exit-sign"">Exit</p>');
-								$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank">Download</a></p>')
+								$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 								$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 								$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
 								$('body').append('<div id="long-bar"></div>')
@@ -468,7 +468,7 @@ $(document).ready(function(){
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').css("background-color", "white");
 					$('body').append('<p class="exit-sign"">Exit</p>');
-					$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank">Download</a></p>')
+					$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 					$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 					$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
 					$('body').append('<div id="long-bar"></div>')

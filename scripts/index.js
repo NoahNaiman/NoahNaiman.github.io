@@ -204,7 +204,12 @@ $(document).ready(function(){
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
 								$('body').css("background-color", "white");
-								$('body').append('<p class="exit-sign">Exit</p>');
+								$('body').append('<p class="exit-sign"">Exit</p>');
+								$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank">Download</a></p>')
+								$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
+								$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
+								$('body').append('<div id="long-bar"></div>')
+
 								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
 						}
@@ -244,6 +249,9 @@ $(document).ready(function(){
 			else if(room == 3){
 				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 630){
 					$('.exit-sign').remove();
+					$('.download-button').remove();
+					$('.resume-text').remove();
+					$('#long-bar').remove();
 					$('body').css('background-color', '#000000');
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					Noah.y = 75;
@@ -459,7 +467,12 @@ $(document).ready(function(){
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').css("background-color", "white");
-					$('body').append('<p class="exit-sign">Exit</p>');
+					$('body').append('<p class="exit-sign"">Exit</p>');
+					$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank">Download</a></p>')
+					$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
+					$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
+					$('body').append('<div id="long-bar"></div>')
+
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
 			}
@@ -486,19 +499,27 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				$('.exit-sign').remove();
-				$('body').css('background-color', '#000000');
-				context.clearRect(0, 0, canvas.width, canvas.height);
-				Noah.y = 75;
-				Noah.x = ResumeDoor.x + 15;
-				drawDoor(AboutDoor, AboutDoor.counter);
-				drawDoor(GithubDoor, GithubDoor.counter);
-				drawDoor(ResumeDoor, ResumeDoor.counter);
-				$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
-				$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
-				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
-				room = 0;
+				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 680){
+					$('.exit-sign').remove();
+					$('.download-button').remove();
+					$('.resume-text').remove();
+					$('#long-bar').remove();
+					$('body').css('background-color', '#000000');
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					Noah.y = 75;
+					Noah.x = ResumeDoor.x + 15;
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					room = 0;
+				}
+				// else if(mouseX >= 1290 && mouseX <= 1430 && mouseY >= 680){
+				// 	download("img/sprites/Noah.png");
+				// }
 			}
 		}
 	});

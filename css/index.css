@@ -96,6 +96,21 @@ canvas{
 	left: 460px;
 }
 
+.resume-text{
+	font-family: 'Courier';
+	position: absolute;
+}
+
+#long-bar{
+	background-color: black;
+	color: black;
+	width: 90%;
+	height: 2px;
+	position: absolute;
+	top: 17%;
+	left: 5%;
+}
+
 .exit-sign{
 	color: #FF9191;
 	font-family: 'Press Start 2P', cursive;
@@ -103,4 +118,14 @@ canvas{
 	position: absolute;
 	top: 91%;
 	left: 50px;
+}
+
+.download-button{
+	color: #2ad7f9;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 30px;
+	position: absolute;
+	top: 91%;
+	right: 50px;
+	z-index: 1000;
 }

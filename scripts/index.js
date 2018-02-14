@@ -198,15 +198,15 @@ $(document).ready(function(){
 						else{
 							ResumeDoor.counter = 3;
 							if(Noah.y <= 70){
+								$('body').css('overflow', 'scroll');
 								room = 3;
 								Noah.y = 550;
 								Noah.x = 70;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
-								context.clearRect(0, 0, canvas.width, canvas.height);
 								$('body').css("background-color", "white");
 								$('body').append('<p class="exit-sign"">Exit</p>');
-								$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
+								//$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 								$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 								$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
 								$('body').append('<div id="long-bar"></div>');
@@ -219,7 +219,16 @@ $(document).ready(function(){
 								$('body').append('<h3 class="resume-text" style="top: 42%; font-weight: 100; font-size: 22px; left: 10%;">Data Structures | Computer Systems Fundamentals | \
 									Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
 								$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
-
+								$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
+								$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
+								$('body').append('<h2 class="resume-text" style="top: 75%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
+								$('body').append('<h3 class="resume-text" style="top: 82%; font-size: 23px; left: 10%;">Aliquator</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 86%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 90%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Web-app for students to enter mathematical units, with all equations using them returned</li>\
+								<li>Engineered server using Node.js and Express, with Pug for HTML templating and JQuery for data parsing</li>\
+								<li>Integrated MongoDB through Java for database of equations to be queried by server.</li>\
+								</ul>');
 								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
 						}
@@ -258,6 +267,7 @@ $(document).ready(function(){
 			}
 			else if(room == 3){
 				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 640){
+					$('body').css('overflow', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
 					$('.resume-text').remove();
@@ -439,7 +449,6 @@ $(document).ready(function(){
 				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 			}
 			if(room != 0){
-				console.log(mouseY)
 				if (mouseX >= 51 && mouseX <= 166 && mouseY >= 710){
 					$('body').css( 'cursor', 'pointer' );
 				}
@@ -478,6 +487,7 @@ $(document).ready(function(){
 					window.open('https://github.com/NoahNaiman');
 				}
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
+					$('body').css('overflow', 'scroll');
 					room = 3;
 					Noah.y = 550;
 					Noah.x = 70;
@@ -485,7 +495,7 @@ $(document).ready(function(){
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').css("background-color", "white");
 					$('body').append('<p class="exit-sign"">Exit</p>');
-					$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
+					//$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 					$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 					$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
 					$('body').append('<div id="long-bar"></div>');
@@ -498,6 +508,16 @@ $(document).ready(function(){
 					$('body').append('<h3 class="resume-text" style="top: 42%; font-weight: 100; font-size: 22px; left: 10%;">Data Structures | Computer Systems Fundamentals | \
 						Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
 					$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
+					$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
+					$('body').append('<h2 class="resume-text" style="top: 75%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 82%; font-size: 23px; left: 10%;">Aliquator</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 86%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 90%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Web-app for students to enter mathematical units, with all equations using them returned</li>\
+					<li>Engineered server using Node.js and Express, with Pug for HTML templating and JQuery for data parsing</li>\
+					<li>Integrated MongoDB through Java for database of equations to be queried by server.</li>\
+					</ul>');
 
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
@@ -526,6 +546,7 @@ $(document).ready(function(){
 			}
 			else if(room == 3){
 				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 710){
+					$('body').css('overflow', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
 					$('.resume-text').remove();

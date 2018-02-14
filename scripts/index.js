@@ -203,12 +203,22 @@ $(document).ready(function(){
 								Noah.x = 70;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
+								context.clearRect(0, 0, canvas.width, canvas.height);
 								$('body').css("background-color", "white");
 								$('body').append('<p class="exit-sign"">Exit</p>');
 								$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 								$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 								$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
-								$('body').append('<div id="long-bar"></div>')
+								$('body').append('<div id="long-bar"></div>');
+								$('body').append('<h2 class="resume-text" style="top: 15%; font-size: 37px; left: 10%; color: #2ad7f9;">Education</h2>');
+								$('body').append('<h3 class="resume-text" style="top: 22%; font-size: 23px; left: 10%;">Boston University</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 22%; font-weight: 100; font-size: 23px; left: 67%;">Expected Graduation, May 2020</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 26%; font-weight: 100; font-size: 22px; left: 10%;">Major: Computer Science</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 32%; font-size: 23px; left: 10%;">GPA: 3.5</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 38%; font-size: 23px; left: 10%;">Relevant Coursework:</h2>');
+								$('body').append('<h3 class="resume-text" style="top: 42%; font-weight: 100; font-size: 22px; left: 10%;">Data Structures | Computer Systems Fundamentals | \
+									Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
+								$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 
 								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
@@ -478,7 +488,16 @@ $(document).ready(function(){
 					$('body').append('<p class="download-button"><a href="img/downloads/Naiman_Noah_Resume.pdf" target="_blank" style="text-decoration:none;" download>Download</a></p>')
 					$('body').append('<h1 class="resume-text" style="top: -5%; font-size: 70px; left: 35%; color: #2ad7f9;">Noah Naiman</h1>');
 					$('body').append('<h2 class="resume-text" style="top: 9%; font-size: 25px; left: 26%;">(303)547-7073 | nnaiman@bu.edu | www.noahnaiman.me</h2>');
-					$('body').append('<div id="long-bar"></div>')
+					$('body').append('<div id="long-bar"></div>');
+					$('body').append('<h2 class="resume-text" style="top: 15%; font-size: 37px; left: 10%; color: #2ad7f9;">Education</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 22%; font-size: 23px; left: 10%;">Boston University</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 22%; font-weight: 100; font-size: 23px; left: 67%;">Expected Graduation, May 2020</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 26%; font-weight: 100; font-size: 22px; left: 10%;">Major: Computer Science</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 32%; font-size: 23px; left: 10%;">GPA: 3.5</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 38%; font-size: 23px; left: 10%;">Relevant Coursework:</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 42%; font-weight: 100; font-size: 22px; left: 10%;">Data Structures | Computer Systems Fundamentals | \
+						Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
+					$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}

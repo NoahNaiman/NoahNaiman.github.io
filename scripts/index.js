@@ -198,7 +198,7 @@ $(document).ready(function(){
 						else{
 							ResumeDoor.counter = 3;
 							if(Noah.y <= 70){
-								$('body').css('overflow', 'scroll');
+								$('body').css('overflow-y', 'scroll');
 								room = 3;
 								Noah.y = 550;
 								Noah.x = 70;
@@ -267,7 +267,7 @@ $(document).ready(function(){
 			}
 			else if(room == 3){
 				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 640){
-					$('body').css('overflow', 'hidden');
+					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
 					$('.resume-text').remove();
@@ -487,7 +487,7 @@ $(document).ready(function(){
 					window.open('https://github.com/NoahNaiman');
 				}
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
-					$('body').css('overflow', 'scroll');
+					$('body').css('overflow-y', 'scroll');
 					room = 3;
 					Noah.y = 550;
 					Noah.x = 70;
@@ -546,7 +546,7 @@ $(document).ready(function(){
 			}
 			else if(room == 3){
 				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 710){
-					$('body').css('overflow', 'hidden');
+					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
 					$('.resume-text').remove();

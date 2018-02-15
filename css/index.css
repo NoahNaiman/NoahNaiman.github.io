@@ -1,6 +1,7 @@
 body{
 	background-color: #000000;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 #terminal-head{
@@ -115,7 +116,7 @@ canvas{
 	color: #FF9191;
 	font-family: 'Press Start 2P', cursive;
 	font-size: 30px;
-	position: absolute;
+	position: fixed;
 	top: 91%;
 	left: 50px;
 }

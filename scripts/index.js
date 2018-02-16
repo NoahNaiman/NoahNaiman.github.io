@@ -332,6 +332,9 @@ $(document).ready(function(){
 		if(Noah.y > windowHeight-90 && room != 3){
 			Noah.y = windowHeight-90;
 		}
+		else if(Noah.y > 1625 && room == 3){
+			Noah.y = 1625;
+		}
 		else if(Noah.y < 60){
 			Noah.y = 60;
 		}
@@ -616,6 +619,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
+				console.log(mouseY);
 				if(mouseX >= 0 && mouseX <= 120 && mouseY >= ($('body').scrollTop()+windowHeight-60)){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();

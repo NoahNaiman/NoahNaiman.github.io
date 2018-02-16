@@ -201,7 +201,7 @@ $(document).ready(function(){
 							if(Noah.y <= 70){
 								$('body').css('overflow-y', 'scroll');
 								room = 3;
-								Noah.y = 550;
+								Noah.y = 420;
 								Noah.x = 30;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
@@ -301,7 +301,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 640){
+				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 1620){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
@@ -319,6 +319,7 @@ $(document).ready(function(){
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					room = 0;
+					$('body').scrollTop(0);
 				}
 			}
 		}
@@ -328,7 +329,7 @@ $(document).ready(function(){
 		else if(start && Noah.x < -50){
 			Noah.x = windowWidth;
 		}
-		if(Noah.y > windowHeight-90){
+		if(Noah.y > windowHeight-90 && room != 3){
 			Noah.y = windowHeight-90;
 		}
 		else if(Noah.y < 60){
@@ -392,7 +393,7 @@ $(document).ready(function(){
 	    if(keys[13] && !start && !inIntro){
 	    	$('#terminal-head').remove();
 			$('#jumbotron').remove();
-			$('body').append('<canvas id="canvas" height="' + windowHeight + '" width="' + windowWidth + '"></canvas>');
+			$('body').append('<canvas id="canvas" height="' + windowHeight*2.3 + '" width="' + windowWidth + '"></canvas>');
 			context = document.getElementById('canvas').getContext('2d');
 			loadNoahSprites()
 			inIntro = true;
@@ -487,7 +488,7 @@ $(document).ready(function(){
 				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 			}
 			if(room != 0){
-				if (mouseX >= 51 && mouseX <= 166 && mouseY >= 710){
+				if (mouseX >= 11 && mouseX <= 126 && mouseY >= ($('body').scrollTop()+windowHeight-60)){
 					$('body').css( 'cursor', 'pointer' );
 				}
 				else{
@@ -527,7 +528,7 @@ $(document).ready(function(){
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
 					$('body').css('overflow-y', 'scroll');
 					room = 3;
-					Noah.y = 550;
+					Noah.y = 420;
 					Noah.x = 30;
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
@@ -593,7 +594,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 1){
-				if(Noah.x >= 0 && Noah.x <= 120 && mouseY >= 710){
+				if(mouseX >= 0 && mouseX <= 120 && mouseY >= 710){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
@@ -615,7 +616,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				if(Noah.x >= 0 && Noah.x <= 120 && mouseY >= 710){
+				if(mouseX >= 0 && mouseX <= 120 && mouseY >= ($('body').scrollTop()+windowHeight-60)){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
@@ -632,6 +633,7 @@ $(document).ready(function(){
 					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					$('body').scrollTop(0);
 					room = 0;
 				}
 				// else if(mouseX >= 1290 && mouseX <= 1430 && mouseY >= 680){
@@ -722,7 +724,10 @@ $(document).ready(function(){
 		        Noah.velocityY++;
 		    }
 		}
-
+		if(room == 3 && Noah.y >= 430){
+			Noah.velocityY *= Noah.friction;
+			$('body').scrollTop($('body').scrollTop() + Noah.velocityY);
+		}
 		Noah.velocityY *= Noah.friction;
 	    Noah.y += Noah.velocityY;
 		Noah.velocityX *= Noah.friction;

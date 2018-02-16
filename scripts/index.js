@@ -139,6 +139,7 @@ $(document).ready(function(){
 							if(Noah.y <= 70){
 								room = 1;
 								Noah.y = 550;
+								Noah.x = 30;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
 											$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
@@ -201,7 +202,7 @@ $(document).ready(function(){
 								$('body').css('overflow-y', 'scroll');
 								room = 3;
 								Noah.y = 550;
-								Noah.x = 70;
+								Noah.x = 30;
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
 								$('body').css("background-color", "white");
@@ -221,13 +222,46 @@ $(document).ready(function(){
 								$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 								$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
 								$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
-								$('body').append('<h2 class="resume-text" style="top: 75%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
-								$('body').append('<h3 class="resume-text" style="top: 82%; font-size: 23px; left: 10%;">Aliquator</h3>');
-								$('body').append('<h3 class="resume-text" style="top: 86%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
-								$('body').append('<ul class="resume-text" style="top: 90%; font-weight: 100; font-size: 22px; left: 15%;">\
+								$('body').append('<h2 class="resume-text" style="top: 72%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
+								$('body').append('<h3 class="resume-text" style="top: 79%; font-size: 23px; left: 10%;">Aliquator</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 83%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 87%; font-weight: 100; font-size: 22px; left: 15%;">\
 								<li>Web-app for students to enter mathematical units, with all equations using them returned</li>\
 								<li>Engineered server using Node.js and Express, with Pug for HTML templating and JQuery for data parsing</li>\
-								<li>Integrated MongoDB through Java for database of equations to be queried by server.</li>\
+								<li>Integrated MongoDB through Java for database of equations to be queried by server</li>\
+								</ul>');
+								$('body').append('<h3 class="resume-text" style="top: 103%; font-size: 23px; left: 10%;">The Notorious A.L.E.X.A</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 107%; font-weight: 100; font-size: 22px; left: 10%;"><i>HackUmass 2017 Team Project</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 111%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Amazon Alexa skill to make Alexa freestyle rap</li>\
+								<li>20,000 lines of lyrics web-scraped by python script through Beautiful Soup library</li>\
+								<li>Scraped lyrics used to train a Keras neural network, creating a model for each decade of rap</li>\
+								<li>Back-end server to send lyrics written in python utilizing Flask and ngrok.</li>\
+								</ul>');
+								$('body').append('<h2 class="resume-text" style="top: 130%; font-size: 37px; left: 10%; color: #2ad7f9;">Experience</h2>');
+								$('body').append('<h3 class="resume-text" style="top: 137%; font-size: 23px; left: 10%;">BostonHacks Hackathon (Fall 2017 – Present)</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 141%; font-weight: 100; font-size: 22px; left: 10%;"><i>Organizer</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 145%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Worked with a team of 16 other students and Boston University to help organize a hackathon of 400+ students</li>\
+								<li>Reached out to and interacted with sponsors to attain financing for event</li>\
+								<li>Helped build live website used by participants during event</li>\
+								<li>Developed workshops for participants in topics such as Machine Learning, Web and Mobile Development, and intergrating various APIs</li>\
+								</ul>');
+								$('body').append('<h3 class="resume-text" style="top: 167%; font-size: 23px; left: 10%;">Student Tutor (Fall 2017 – Present)</h3>');
+								$('body').append('<ul class="resume-text" style="top: 171%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Met with students for weekly tutoring sessions in data structures, algorithm design and analysis, various other computer science topics</li>\
+								</ul>');
+								$('body').append('<h3 class="resume-text" style="top: 180%; font-size: 23px; left: 10%;">Boston University Computer Science Mentor Program</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 184%; font-weight: 100; font-size: 22px; left: 10%;"><i>Program Founding Member</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 188%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Met with mentees weekly to help integrate them into the Boston University Computer Science community</li>\
+								<li>Tutored mentees for their Computer Science classes and ran workshops on topics of interest. Topics include: basics in Computer Science, Git and Github for version control, using Node.js to create web-apps</li>\
+								</ul>');
+								$('body').append('<h3 class="resume-text" style="top: 207%; font-size: 23px; left: 10%;">0xBU Cyber Security Club (Fall 2016 – Present)</h3>');
+								$('body').append('<h3 class="resume-text" style="top: 211%; font-weight: 100; font-size: 22px; left: 10%;"><i>Vice President</i></h3>');
+								$('body').append('<ul class="resume-text" style="top: 215%; font-weight: 100; font-size: 22px; left: 15%;">\
+								<li>Studied various cybersecurity topics at weekly meetings and workshops such as: Web Security, Reverse Engineering, and Cryptography</li>\
+								<li>Competed in weekly online Capture the Flag competitions including MITRE CTF, CSAW CTF, BACKDOORCTF</li>\
 								</ul>');
 								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
@@ -249,12 +283,13 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 1){
-				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 640){
+				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 640){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					Noah.y = 75;
+					Noah.x = AboutDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
 					drawDoor(GithubDoor, GithubDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
@@ -266,7 +301,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				if(Noah.x >= 10 && Noah.x <= 160 && Noah.y >= 640){
+				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 640){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();
@@ -400,6 +435,9 @@ $(document).ready(function(){
 	    else if(start){
 	    	if(e.which >= 37 && e.which <= 40){
 	    		Noah.moving = true;
+	    		if(room == 3){
+	    			e.preventDefault();
+	    		}
 	    	}
 	    }
 	});
@@ -465,7 +503,7 @@ $(document).ready(function(){
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
 					room = 1;
 					Noah.y = 550;
-					Noah.x = 70;
+					Noah.x = 30;
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
@@ -490,7 +528,7 @@ $(document).ready(function(){
 					$('body').css('overflow-y', 'scroll');
 					room = 3;
 					Noah.y = 550;
-					Noah.x = 70;
+					Noah.x = 30;
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').css("background-color", "white");
@@ -510,20 +548,52 @@ $(document).ready(function(){
 					$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 					$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
 					$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
-					$('body').append('<h2 class="resume-text" style="top: 75%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
-					$('body').append('<h3 class="resume-text" style="top: 82%; font-size: 23px; left: 10%;">Aliquator</h3>');
-					$('body').append('<h3 class="resume-text" style="top: 86%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
-					$('body').append('<ul class="resume-text" style="top: 90%; font-weight: 100; font-size: 22px; left: 15%;">\
+					$('body').append('<h2 class="resume-text" style="top: 72%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 79%; font-size: 23px; left: 10%;">Aliquator</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 83%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 87%; font-weight: 100; font-size: 22px; left: 15%;">\
 					<li>Web-app for students to enter mathematical units, with all equations using them returned</li>\
 					<li>Engineered server using Node.js and Express, with Pug for HTML templating and JQuery for data parsing</li>\
-					<li>Integrated MongoDB through Java for database of equations to be queried by server.</li>\
+					<li>Integrated MongoDB through Java for database of equations to be queried by server</li>\
 					</ul>');
-
+					$('body').append('<h3 class="resume-text" style="top: 103%; font-size: 23px; left: 10%;">The Notorious A.L.E.X.A</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 107%; font-weight: 100; font-size: 22px; left: 10%;"><i>HackUmass 2017 Team Project</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 111%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Amazon Alexa skill to make Alexa freestyle rap</li>\
+					<li>20,000 lines of lyrics web-scraped by python script through Beautiful Soup library</li>\
+					<li>Scraped lyrics used to train a Keras neural network, creating a model for each decade of rap</li>\
+					<li>Back-end server to send lyrics written in python utilizing Flask and ngrok.</li>\
+					</ul>');
+					$('body').append('<h2 class="resume-text" style="top: 130%; font-size: 37px; left: 10%; color: #2ad7f9;">Experience</h2>');
+					$('body').append('<h3 class="resume-text" style="top: 137%; font-size: 23px; left: 10%;">BostonHacks Hackathon (Fall 2017 – Present)</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 141%; font-weight: 100; font-size: 22px; left: 10%;"><i>Organizer</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 145%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Worked with a team of 16 other students and Boston University to help organize a hackathon of 400+ students</li>\
+					<li>Reached out to and interacted with sponsors to attain financing for event</li>\
+					<li>Helped build live website used by participants during event</li>\
+					<li>Developed workshops for participants in topics such as Machine Learning, Web and Mobile Development, and intergrating various APIs</li>\
+					</ul>');
+					$('body').append('<h3 class="resume-text" style="top: 167%; font-size: 23px; left: 10%;">Student Tutor (Fall 2017 – Present)</h3>');
+					$('body').append('<ul class="resume-text" style="top: 171%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Met with students for weekly tutoring sessions in data structures, algorithm design and analysis, various other computer science topics</li>\
+					</ul>');
+					$('body').append('<h3 class="resume-text" style="top: 180%; font-size: 23px; left: 10%;">Boston University Computer Science Mentor Program</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 184%; font-weight: 100; font-size: 22px; left: 10%;"><i>Program Founding Member</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 188%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Met with mentees weekly to help integrate them into the Boston University Computer Science community</li>\
+					<li>Tutored mentees for their Computer Science classes and ran workshops on topics of interest. Topics include: basics in Computer Science, Git and Github for version control, using Node.js to create web-apps</li>\
+					</ul>');
+					$('body').append('<h3 class="resume-text" style="top: 207%; font-size: 23px; left: 10%;">0xBU Cyber Security Club (Fall 2016 – Present)</h3>');
+					$('body').append('<h3 class="resume-text" style="top: 211%; font-weight: 100; font-size: 22px; left: 10%;"><i>Vice President</i></h3>');
+					$('body').append('<ul class="resume-text" style="top: 215%; font-weight: 100; font-size: 22px; left: 15%;">\
+					<li>Studied various cybersecurity topics at weekly meetings and workshops such as: Web Security, Reverse Engineering, and Cryptography</li>\
+					<li>Competed in weekly online Capture the Flag competitions including MITRE CTF, CSAW CTF, BACKDOORCTF</li>\
+					</ul>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
 			}
 			else if(room == 1){
-				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 710){
+				if(Noah.x >= 0 && Noah.x <= 120 && mouseY >= 710){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
@@ -545,7 +615,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				if(mouseX >= 10 && mouseX <= 160 && mouseY >= 710){
+				if(Noah.x >= 0 && Noah.x <= 120 && mouseY >= 710){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();

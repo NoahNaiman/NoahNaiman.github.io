@@ -34,8 +34,15 @@ $(document).ready(function(){
 		$('#canvas').attr('width', windowWidth);
 		GithubDoor.x = windowWidth/2.2;
 		ResumeDoor.x = windowWidth - 160;
-
 		context = document.getElementById('canvas').getContext('2d');
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		if(room == 0){
+			drawDoor(AboutDoor, AboutDoor.counter);
+			drawDoor(GithubDoor, GithubDoor.counter);
+			drawDoor(ResumeDoor, ResumeDoor.counter);
+		}
+		context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+
 	});
 
 	//SPRITES
@@ -285,7 +292,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 1){
-				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 640){
+				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= windowHeight*0.82){
 					$('#big-picture').remove();
 					$('#about-me').remove();
 					$('.exit-sign').remove();
@@ -303,7 +310,7 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= 1620){
+				if(Noah.x >= 0 && Noah.x <= 120 && Noah.y >= windowHeight*2.3*0.922){
 					$('body').css('overflow-y', 'hidden');
 					$('.exit-sign').remove();
 					$('.download-button').remove();

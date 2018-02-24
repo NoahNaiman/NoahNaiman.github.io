@@ -1,7 +1,3 @@
-/*
- *	This file runs everything.
-*/
-
 $(document).ready(function(){
 
 	(function(){
@@ -32,8 +28,13 @@ $(document).ready(function(){
 	var windowWidth = $(window).width();
 	var windowHeight = $(window).height();
 	$(window).resize(function(){
+		console.log(windowWidth);
 		windowWidth = $(window).width();
 		windowHeight = $(window).height();
+		console.log(windowWidth);
+		$('#canvas').css('height', 'windowHeight*2.3');
+		$('#canvas').css('width', 'windowWidth');
+		context = document.getElementById('canvas').getContext('2d');
 	});
 
 	//SPRITES

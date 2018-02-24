@@ -28,12 +28,13 @@ $(document).ready(function(){
 	var windowWidth = $(window).width();
 	var windowHeight = $(window).height();
 	$(window).resize(function(){
-		console.log(windowWidth);
 		windowWidth = $(window).width();
 		windowHeight = $(window).height();
-		console.log(windowWidth);
-		$('#canvas').css('height', 'windowHeight*2.3');
-		$('#canvas').css('width', 'windowWidth');
+		$('#canvas').attr('height', windowHeight*2.3);
+		$('#canvas').attr('width', windowWidth);
+		GithubDoor.x = windowWidth/2.2;
+		ResumeDoor.x = windowWidth - 160;
+
 		context = document.getElementById('canvas').getContext('2d');
 	});
 
@@ -397,7 +398,10 @@ $(document).ready(function(){
 	    if(keys[13] && !start && !inIntro){
 	    	$('#terminal-head').remove();
 			$('#jumbotron').remove();
-			$('body').append('<canvas id="canvas" height="' + windowHeight*2.3 + '" width="' + windowWidth + '"></canvas>');
+			$('body').append('<canvas id="canvas"></canvas>');
+			//height="' + windowHeight*2.3 + '" width="' + windowWidth + '"
+			$('#canvas').attr('height', windowHeight*2.3);
+			$('#canvas').attr('width', windowWidth);
 			context = document.getElementById('canvas').getContext('2d');
 			loadNoahSprites()
 			inIntro = true;

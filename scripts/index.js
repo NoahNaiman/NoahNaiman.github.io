@@ -230,7 +230,7 @@ $(document).ready(function(){
 									Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
 								$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 								$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
-								$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
+								$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | Git</a></h3>');
 								$('body').append('<h2 class="resume-text" style="top: 72%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
 								$('body').append('<h3 class="resume-text" style="top: 79%; font-size: 23px; left: 10%;">Aliquator</h3>');
 								$('body').append('<h3 class="resume-text" style="top: 83%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');
@@ -563,7 +563,7 @@ $(document).ready(function(){
 						Discrete Math & Combinatorics | Probability in Computing | Algebraic Algorithms & Modular Arithmetic | Algorithms & Analysis | Cybersecurity</h3>');
 					$('body').append('<h2 class="resume-text" style="top: 52%; font-size: 37px; left: 10%; color: #2ad7f9;">Skills</h2>');
 					$('body').append('<h3 class="resume-text" style="top: 59%; font-size: 23px; left: 10%;">Languages: <a style="font-weight: 100; font-size: 22px;">Python | C/C++ | JavaScript | Java</a></h3>');
-					$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | MongoDB | Git</a></h3>');
+					$('body').append('<h3 class="resume-text" style="top: 65%; font-size: 23px; left: 10%;">Miscellanea: <a style="font-weight: 100; font-size: 22px;">Command Line Interface & Shell Scripting | Node.js | SQL | Git</a></h3>');
 					$('body').append('<h2 class="resume-text" style="top: 72%; font-size: 37px; left: 10%; color: #2ad7f9;">Projects</h2>');
 					$('body').append('<h3 class="resume-text" style="top: 79%; font-size: 23px; left: 10%;">Aliquator</h3>');
 					$('body').append('<h3 class="resume-text" style="top: 83%; font-weight: 100; font-size: 22px; left: 10%;"><i>Personal Project</i></h3>');

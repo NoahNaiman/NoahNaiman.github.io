@@ -338,14 +338,17 @@ $(document).ready(function(){
 		else if(start && Noah.x < -50){
 			Noah.x = windowWidth;
 		}
-		if(Noah.y > windowHeight-90 && room != 3){
-			Noah.y = windowHeight-90;
+		if(Noah.y > windowHeight+40 && room != 3){
+			Noah.y = -60;
 		}
-		else if(Noah.y > 1625 && room == 3){
-			Noah.y = 1625;
+		else if(Noah.y < $(window).scrollTop()-60 && room == 3){
+			Noah.y = $(window).scrollTop() + $(window).height();
 		}
-		else if(Noah.y < 60){
-			Noah.y = 60;
+		else if(Noah.y > $(window).scrollTop() + $(window).height() -105 && room == 3){
+			Noah.y = $(window).scrollTop() + $(window).height() - 105;
+		}
+		else if(Noah.y < -60 && room !=3){
+			Noah.y = windowHeight+40;
 		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}

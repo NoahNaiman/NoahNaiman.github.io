@@ -391,7 +391,7 @@ $(document).ready(function(){
 					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 				}
-			}, 20900);
+			}, 21000);
 	    }
 	    else if(start){
 	    	if(e.which >= 37 && e.which <= 40){

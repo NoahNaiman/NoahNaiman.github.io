@@ -376,7 +376,7 @@ $(document).ready(function(){
 			}, 3400);
 			setTimeout(function(){
 				if(inIntro){
-					speak("In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. Have fun, and thanks for visiting!", 40, 40);
+					speak("In a second, three doors will appear. Either navigate me to them using the arrow keys, or click on them to enter. To exit any of the rooms just click on or walk me into the EXIT signs. Have fun, and thanks for visiting!", 40, 40);
 				}
 			}, 8400);
 			setTimeout(function(){
@@ -391,7 +391,7 @@ $(document).ready(function(){
 					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 				}
-			}, 16000);
+			}, 20900);
 	    }
 	    else if(start){
 	    	if(e.which >= 37 && e.which <= 40){

@@ -31,15 +31,18 @@ $(document).ready(function(){
 		windowWidth = $(window).width();
 		windowHeight = $(window).height();
 		$('#canvas').attr('height', windowHeight*2.3);
-		$('#canvas').attr('width', windowWidth);
-		GithubDoor.x = windowWidth/2.2;
+		$('#canvas').attr('width', windowWidth+8);
+		AdventureDoor.x = windowWidth/2.2;
 		ResumeDoor.x = windowWidth - 160;
 		context = document.getElementById('canvas').getContext('2d');
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		if(room == 0){
 			drawDoor(AboutDoor, AboutDoor.counter);
-			drawDoor(GithubDoor, GithubDoor.counter);
+			drawDoor(AdventureDoor, AdventureDoor.counter);
 			drawDoor(ResumeDoor, ResumeDoor.counter);
+		}
+		else if(room == 2){
+			drawAdventure();
 		}
 		context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 
@@ -82,17 +85,17 @@ $(document).ready(function(){
 		name: "aboutDoor",
 		function: "About me",
 		sprites: [],
-		x: 80,
+		x: 88,
 		y: 50,
 		counter: 0
 	};
 
-	//'Github' door
-	var GithubDoor = {
-		name: "githubDoor",
-		function: "Github",
+	//'Adventure' door
+	var AdventureDoor = {
+		name: "AdventureDoor",
+		function: "Adventure",
 		sprites: [],
-		x: windowWidth/2.2,
+		x: windowWidth/2.19,
 		y: 50,
 		counter: 0
 	};
@@ -102,7 +105,7 @@ $(document).ready(function(){
 		name: "ResumeDoor",
 		function: "Resume",
 		sprites: [],
-		x: windowWidth - 160,
+		x: windowWidth - 150,
 		y: 50,
 		counter: 0
 	};
@@ -117,7 +120,7 @@ $(document).ready(function(){
 	for(var i = 0; i < doorImages.length; i++) {
 		var img = new Image();
 		img.src = doorImages[i];
-		GithubDoor.sprites.push(img);
+		AdventureDoor.sprites.push(img);
 	}
 	for(var i = 0; i < doorImages.length; i++) {
 		var img = new Image();
@@ -125,8 +128,61 @@ $(document).ready(function(){
 		ResumeDoor.sprites.push(img);
 	}
 
+	//Adventure Big Platform
+	var BigPlatform = {
+		name: "BigPlatform",
+		function: "Platform",
+		sprite: null,
+		x: 434,
+		y: 90
+	};
+
+	var InBridge = {
+		name: "InBridge",
+		function: "InBridge",
+		sprite: null,
+		x: 647,
+		y: 603
+	};
+
+	var RightBridge = {
+		name: "RightBridge",
+		function: "RightBridge",
+		sprite: null,
+		x: -134,
+		y: 300
+	};
+
+	var LeftBridge = {
+		name: "LeftBridge",
+		function: "LeftBridge",
+		sprite: null,
+		x: 946,
+		y: 300
+	};
+
+	var img = new Image();
+	img.src = "img/sprites/BigPlatform.png";
+	BigPlatform.sprite = img;
+
+	var otherImg = new Image();
+	otherImg.src = "img/sprites/InBridge.png";
+	InBridge.sprite = otherImg;
+
+	var thirdImg = new Image();
+	thirdImg.src = "img/sprites/SideBridge.png";
+	RightBridge.sprite = thirdImg;
+	LeftBridge.sprite = thirdImg;
+
 	function drawDoor(door, counter){
 		context.drawImage(door.sprites[counter], door.x, door.y, door.sprites[0].width/2, door.sprites[0].height/2);
+	}
+
+	function drawAdventure(){
+		context.drawImage(BigPlatform.sprite, BigPlatform.x, BigPlatform.y, BigPlatform.sprite.width/5, BigPlatform.sprite.height/5);
+		context.drawImage(InBridge.sprite, InBridge.x, InBridge.y, InBridge.sprite.width/5, InBridge.sprite.height/5);
+		context.drawImage(RightBridge.sprite, RightBridge.x, RightBridge.y, RightBridge.sprite.width/5, RightBridge.sprite.height/5);
+		context.drawImage(LeftBridge.sprite, LeftBridge.x, LeftBridge.y, LeftBridge.sprite.width/5, LeftBridge.sprite.height/5);
 	}
 
 	function drawNoah(row, col){
@@ -152,11 +208,13 @@ $(document).ready(function(){
 								$('p.door-title').remove();
 								context.clearRect(0, 0, canvas.width, canvas.height);
 											$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
-											$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
+											$('body').prepend('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
 												Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 												Graduating class of 2020!<br><br>\
 												My passion is Cyber Security.<br><br>\
-												But my interests include IOT Vulnerabilites, Genetic Algorithms, and Machine Learning.<br><br>\
+												But I love cool data structures and Algorithms.<br><br>\
+												Favorite data strucutre: <a href="https://en.wikipedia.org/wiki/Fibonacci_heap" style="color: #FF9191;" target="_blank">Fibonacci Heap.</a><br><br>\
+												Favorite algorithm: <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" style="color: #FF9191;" target="_blank">Karatsuba Multiplication.</a><br><br>\
 												I\'m from Denver, but I live in Boston.<br><br>\
 												Hobbies include writing, boxing, and making bad jokes.<br><br>\
 												Currently looking for summer employment.<br><br>\
@@ -172,26 +230,37 @@ $(document).ready(function(){
 						AboutDoor.counter = 0;
 					}
 				}
-				else if(Noah.x+58 >= GithubDoor.x && Noah.x <= (GithubDoor.x + GithubDoor.sprites[0].width/2)){
+				else if(Noah.x+58 >= AdventureDoor.x && Noah.x <= (AdventureDoor.x + AdventureDoor.sprites[0].width/2)){
 					if(row != 0){
 						if(Noah.y > windowHeight/2){
-							GithubDoor.counter = 0;
+							AdventureDoor.counter = 0;
 						}
 						else if(Noah.y <= windowHeight/2 && Noah.y > windowHeight/2 - windowHeight/6){
-							GithubDoor.counter = 1;
+							AdventureDoor.counter = 1;
 						}
 						else if(Noah.y <= windowHeight/2-windowHeight/6 && Noah.y > windowHeight/2 - windowHeight/4){
-							GithubDoor.counter = 2;
+							AdventureDoor.counter = 2;
 						}
 						else{
-							GithubDoor.counter = 3;
+							AdventureDoor.counter = 3;
 							if(Noah.y <= 70){
-								window.open('https://github.com/NoahNaiman');
+								room = 2;
+								Noah.y = 685;
+								$('p.door-title').remove();
+								if(document.getElementById('water-background') == null){
+									$('body').prepend('<video autoplay muted loop id="water-background"><source src="img/video/water.mp4" type="video/mp4"></video>');
+								}
+								else{
+									$('#water-background').css('visibility', 'visible');
+								}
+								context.clearRect(0, 0, canvas.width, canvas.height);
+								drawAdventure();
+								context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 							}
 						}
 					}
 					else{
-						GithubDoor.counter = 0;
+						AdventureDoor.counter = 0;
 					}
 				}
 				else if(Noah.x+58 >= ResumeDoor.x && Noah.x <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2)){
@@ -227,12 +296,12 @@ $(document).ready(function(){
 				}
 				else{
 					AboutDoor.counter = 0;
-					GithubDoor.counter = 0;
+					AdventureDoor.counter = 0;
 					ResumeDoor.counter = 0;
 				}
 				if(room == 0){
 					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
 				}
 			}
@@ -245,13 +314,31 @@ $(document).ready(function(){
 					Noah.y = 75;
 					Noah.x = AboutDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					room = 0;
+				}
+			}
+			else if(room == 2){
+				if(Noah.y > 730){
+					$('#water-background').css('visibility', 'hidden');
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					Noah.y = 100;
+					drawDoor(AboutDoor, AboutDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
+					drawDoor(ResumeDoor, ResumeDoor.counter);
+					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
+					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
+					room = 0;
+				}
+				else{
+					drawAdventure();
 				}
 			}
 			else if(room == 3){
@@ -263,10 +350,10 @@ $(document).ready(function(){
 					Noah.y = 75;
 					Noah.x = ResumeDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					room = 0;
@@ -274,23 +361,43 @@ $(document).ready(function(){
 				}
 			}
 		}
-		if(Noah.x > windowWidth){
-			Noah.x = -30;
+		if(room != 2){
+			if(Noah.x > windowWidth){
+				Noah.x = -30;
+			}
+			else if(start && Noah.x < -50){
+				Noah.x = windowWidth;
+			}
+			if(Noah.y > windowHeight+40 && room != 3){
+				Noah.y = -60;
+			}
+			else if(Noah.y < $(window).scrollTop()-60 && room == 3){
+				Noah.y = $(window).scrollTop() + $(window).height();
+			}
+			else if(Noah.y > $(window).scrollTop() + $(window).height() -105 && room == 3){
+				Noah.y = $(window).scrollTop() + $(window).height() - 105;
+			}
+			else if(Noah.y < -60 && room !=3){
+				Noah.y = windowHeight+40;
+			}
 		}
-		else if(start && Noah.x < -50){
-			Noah.x = windowWidth;
-		}
-		if(Noah.y > windowHeight+40 && room != 3){
-			Noah.y = -60;
-		}
-		else if(Noah.y < $(window).scrollTop()-60 && room == 3){
-			Noah.y = $(window).scrollTop() + $(window).height();
-		}
-		else if(Noah.y > $(window).scrollTop() + $(window).height() -105 && room == 3){
-			Noah.y = $(window).scrollTop() + $(window).height() - 105;
-		}
-		else if(Noah.y < -60 && room !=3){
-			Noah.y = windowHeight+40;
+		else{
+			if(Noah.y <= BigPlatform.y - 50 && Noah.x >= BigPlatform.x && Noah.x <= (BigPlatform.x+BigPlatform.sprite.width/5)){
+				Noah.y = BigPlatform.y - 50;
+			}
+			else if(Noah.y+(Noah.sprites[0][0].height/1.3) >= InBridge.y){
+				if(Noah.x <= InBridge.x+1){
+					Noah.x = InBridge.x+1;
+					// && (Noah.x >= BigPlatform.x+(BigPlatform.sprite.width/5)/3)
+				}
+				// else if((Noah.y+Noah.sprites[0][0].height/1.3) >= BigPlatform.y + BigPlatform.sprite.height/5-30 && ((Noah.x+Noah.sprites[0][0].width/1.3 < InBridge.x) || (Noah.x > InBridge.x+InBridge.sprite.width/5))){
+				// 	console.log("HEHE");
+				// 	Noah.y = BigPlatform.y + BigPlatform.sprite.height/5;
+				// }
+				else if((Noah.x+Noah.sprites[0][0].width/1.3) >= (InBridge.x+InBridge.sprite.width/5)){
+					Noah.x = (InBridge.x+InBridge.sprite.width/5 -1)-Noah.sprites[0][0].width/1.3;
+				}
+			}
 		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}
@@ -340,10 +447,10 @@ $(document).ready(function(){
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				drawNoah(0,0);
 				drawDoor(AboutDoor, 0);
-				drawDoor(GithubDoor, 0);
+				drawDoor(AdventureDoor, 0);
 				drawDoor(ResumeDoor, 0);
 				$('body').prepend('<p class="door-title" style="right: 4.7%;">Resume</p>');
-				$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+				$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 				$('body').prepend('<p class="door-title" style="left: 6.2%;">About</p>');
 			}
 		}
@@ -353,7 +460,7 @@ $(document).ready(function(){
 			$('body').append('<canvas id="canvas"></canvas>');
 			//height="' + windowHeight*2.3 + '" width="' + windowWidth + '"
 			$('#canvas').attr('height', windowHeight*2.3);
-			$('#canvas').attr('width', windowWidth);
+			$('#canvas').attr('width', windowWidth+8);
 			context = document.getElementById('canvas').getContext('2d');
 			loadNoahSprites()
 			inIntro = true;
@@ -385,10 +492,10 @@ $(document).ready(function(){
 					start = true;
 					inIntro = false;
 					drawDoor(AboutDoor, 0);
-					drawDoor(GithubDoor, 0);
+					drawDoor(AdventureDoor, 0);
 					drawDoor(ResumeDoor, 0);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 				}
 			}, 21000);
@@ -423,19 +530,19 @@ $(document).ready(function(){
 				if(mouseX >= AboutDoor.x && mouseX <= (AboutDoor.x + AboutDoor.sprites[0].width/2) && mouseY >= AboutDoor.y && (mouseY <= AboutDoor.y + AboutDoor.sprites[0].height/2)){
 					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 3;
-					GithubDoor.counter = 0;
+					AdventureDoor.counter = 0;
 					ResumeDoor.counter = 0;
 				}
-				else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
+				else if(mouseX >= AdventureDoor.x && mouseX <= (AdventureDoor.x + AdventureDoor.sprites[0].width/2) && mouseY >= AdventureDoor.y && (mouseY <= AdventureDoor.y + AdventureDoor.sprites[0].height/2)){
 					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 0;
-					GithubDoor.counter = 3;
+					AdventureDoor.counter = 3;
 					ResumeDoor.counter = 0;
 				}
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
 					$('body').css( 'cursor', 'pointer' );
 					AboutDoor.counter = 0;
-					GithubDoor.counter = 0;
+					AdventureDoor.counter = 0;
 					ResumeDoor.counter = 3;
 				}
 				else{
@@ -443,7 +550,7 @@ $(document).ready(function(){
 				}
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				drawDoor(AboutDoor, AboutDoor.counter);
-				drawDoor(GithubDoor, GithubDoor.counter);
+				drawDoor(AdventureDoor, AdventureDoor.counter);
 				drawDoor(ResumeDoor, ResumeDoor.counter);
 				context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 			}
@@ -468,11 +575,13 @@ $(document).ready(function(){
 					$('p.door-title').remove();
 					context.clearRect(0, 0, canvas.width, canvas.height);
 					$('body').append('<img id="big-picture" src=img/pictures/self.jpg>');
-					$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
+					$('body').prepend('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
 							Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 							Graduating class of 2020!<br><br>\
 							My passion is Cyber Security.<br><br>\
-							But my interests include IOT Vulnerabilites, Genetic Algorithms, and Machine Learning.<br><br>\
+							But I love cool data structures and Algorithms.<br><br>\
+							Favorite data strucutre: <a href="https://en.wikipedia.org/wiki/Fibonacci_heap" style="color: #FF9191;" target="_blank">Fibonacci Heap.</a><br><br>\
+							Favorite algorithm: <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" style="color: #FF9191;" target="_blank">Karatsuba Multiplication.</a><br><br>\
 							I\'m from Denver, but I live in Boston.<br><br>\
 							Hobbies include writing, boxing, and making bad jokes.<br><br>\
 							Currently looking for summer employment.<br><br>\
@@ -482,8 +591,14 @@ $(document).ready(function(){
 					$('body').append('<p class="exit-sign">Exit</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
-				else if(mouseX >= GithubDoor.x && mouseX <= (GithubDoor.x + GithubDoor.sprites[0].width/2) && mouseY >= GithubDoor.y && (mouseY <= GithubDoor.y + GithubDoor.sprites[0].height/2)){
-					window.open('https://github.com/NoahNaiman');
+				else if(mouseX >= AdventureDoor.x && mouseX <= (AdventureDoor.x + AdventureDoor.sprites[0].width/2) && mouseY >= AdventureDoor.y && (mouseY <= AdventureDoor.y + AdventureDoor.sprites[0].height/2)){
+					room = 2;
+					Noah.y = 700;
+					$('p.door-title').remove();
+					$('body').prepend('<video autoplay muted loop id="water-background"><source src="img/video/water.mp4" type="video/mp4"></video>');
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					drawAdventure();
+					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 				}
 				else if(mouseX >= ResumeDoor.x && mouseX <= (ResumeDoor.x + ResumeDoor.sprites[0].width/2) && mouseY >= ResumeDoor.y && (mouseY <= ResumeDoor.y + ResumeDoor.sprites[0].height/2)){
 					$('body').css('overflow-y', 'scroll');
@@ -507,10 +622,10 @@ $(document).ready(function(){
 					Noah.y = 75;
 					Noah.x = AboutDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					room = 0;
@@ -521,7 +636,6 @@ $(document).ready(function(){
 				}
 			}
 			else if(room == 3){
-				console.log(mouseY);
 				if(mouseX >= 0 && mouseX <= 120 && mouseY >= ($(window).scrollTop()+windowHeight-60)){
 					$('body').css('overflow-y', 'hidden');
 					$('#resume').remove();
@@ -530,10 +644,10 @@ $(document).ready(function(){
 					Noah.y = 75;
 					Noah.x = ResumeDoor.x + 15;
 					drawDoor(AboutDoor, AboutDoor.counter);
-					drawDoor(GithubDoor, GithubDoor.counter);
+					drawDoor(AdventureDoor, AdventureDoor.counter);
 					drawDoor(ResumeDoor, ResumeDoor.counter);
 					$('body').prepend('<p class="door-title" style="right: 4%;">Resume</p>');
-					$('body').prepend('<p class="door-title" style="left: 45.5%;">Github</p>');
+					$('body').prepend('<p class="door-title" style="left: 44%;">Adventure</p>');
 					$('body').prepend('<p class="door-title" style="left: 6%;">About</p>');
 					context.drawImage(Noah.sprites[3][0], Noah.x, Noah.y, Noah.sprites[3][0].width/1.3, Noah.sprites[3][0].height/1.3);
 					$(window).scrollTop(0);

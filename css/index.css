@@ -50,6 +50,7 @@ body{
 
 canvas{
 	z-index: 500;
+	margin-left: -8px;
 	position: relative;
 }
 
@@ -95,6 +96,7 @@ canvas{
 	top: 50px;
 	position: absolute;
 	left: 460px;
+	z-index: 1000;
 }
 
 .resume-text{
@@ -129,4 +131,12 @@ canvas{
 	top: 91%;
 	right: 50px;
 	z-index: 1000;
+}
+
+#water-background{
+    position: fixed;
+    right: 0;
+    margin-top: -1%;
+    min-width: 100%; 
+    min-height: 110%;
 }

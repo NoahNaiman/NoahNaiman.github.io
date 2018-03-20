@@ -390,12 +390,13 @@ $(document).ready(function(){
 					Noah.x = InBridge.x+1;
 					// && (Noah.x >= BigPlatform.x+(BigPlatform.sprite.width/5)/3)
 				}
-				// else if((Noah.y+Noah.sprites[0][0].height/1.3) >= BigPlatform.y + BigPlatform.sprite.height/5-30 && ((Noah.x+Noah.sprites[0][0].width/1.3 < InBridge.x) || (Noah.x > InBridge.x+InBridge.sprite.width/5))){
-				// 	console.log("HEHE");
-				// 	Noah.y = BigPlatform.y + BigPlatform.sprite.height/5;
-				// }
 				else if((Noah.x+Noah.sprites[0][0].width/1.3) >= (InBridge.x+InBridge.sprite.width/5)){
 					Noah.x = (InBridge.x+InBridge.sprite.width/5 -1)-Noah.sprites[0][0].width/1.3;
+				}
+			}
+			else if(Noah.x+Noah.sprites[0][0].width/1.3 <= InBridge.x || Noah.x >= (InBridge.x+InBridge.sprite.width/5)){
+				if(Noah.y > BigPlatform.y+BigPlatform.sprite.height/5 - 125){
+					Noah.y = (BigPlatform.y+BigPlatform.sprite.height/5 - 125);
 				}
 			}
 		}

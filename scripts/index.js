@@ -217,7 +217,7 @@ $(document).ready(function(){
 												Favorite algorithm: <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" style="color: #FF9191;" target="_blank">Karatsuba Multiplication.</a><br><br>\
 												I\'m from Denver, but I live in Boston.<br><br>\
 												Hobbies include writing, boxing, and making bad jokes.<br><br>\
-												Currently looking for summer employment.<br><br>\
+												Incoming Summer information security intern at Monster.com.<br><br>\
 												I can be reached at nnaiman@bu.edu<br><br>\
 												<a style="color: #2ad7f9;">\"You\'re only given a little spark of madness. You mustn\'t lose it.\"<br><br>\
 												&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
@@ -382,23 +382,48 @@ $(document).ready(function(){
 			}
 		}
 		else{
-			if(Noah.y <= BigPlatform.y - 50 && Noah.x >= BigPlatform.x && Noah.x <= (BigPlatform.x+BigPlatform.sprite.width/5)){
-				Noah.y = BigPlatform.y - 50;
+			if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 30){
+				Noah.y = BigPlatform.y + 30 -Noah.sprites[0][0].height/1.3;
 			}
-			else if(Noah.y+(Noah.sprites[0][0].height/1.3) >= InBridge.y){
-				if(Noah.x <= InBridge.x+1){
-					Noah.x = InBridge.x+1;
-					// && (Noah.x >= BigPlatform.x+(BigPlatform.sprite.width/5)/3)
-				}
-				else if((Noah.x+Noah.sprites[0][0].width/1.3) >= (InBridge.x+InBridge.sprite.width/5)){
-					Noah.x = (InBridge.x+InBridge.sprite.width/5 -1)-Noah.sprites[0][0].width/1.3;
-				}
+			else if(Noah.x < InBridge.x && (Noah.y + Noah.sprites[0][0].height/1.3 + 20) > InBridge.y){
+				Noah.x = InBridge.x;
 			}
-			else if(Noah.x+Noah.sprites[0][0].width/1.3 <= InBridge.x || Noah.x >= (InBridge.x+InBridge.sprite.width/5)){
-				if(Noah.y > BigPlatform.y+BigPlatform.sprite.height/5 - 125){
-					Noah.y = (BigPlatform.y+BigPlatform.sprite.height/5 - 125);
-				}
+			else if(((Noah.x < InBridge.x) || (Noah.x > InBridge.x + InBridge.sprite.width/5)) && (Noah.y+Noah.sprites[0][0].height/1.3 > BigPlatform.y+BigPlatform.sprite.height/5)){
+				Noah.y = BigPlatform.y+BigPlatform.sprite.height/5-Noah.sprites[0][0].height/1.3;
 			}
+			// else if((Noah.x < InBridge.x) || ((Noah.x + Noah.sprites[0][0].width/1.3) > (InBridge.x + InBridge.sprite.width/5))){
+			// 	if((Noah.y + Noah.sprites[0][0].height/1.3 + 45) > (BigPlatform.y + BigPlatform.sprite.height/5)){
+			// 		Noah.y = BigPlatform.y + BigPlatform.sprite.height/5 - 45 - Noah.sprites[0][0].height/1.3;
+			// 	}
+			// }
+			// if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 40 && Noah.x >= BigPlatform.x-2){
+			// 	Noah.y = BigPlatform.y + 40 -Noah.sprites[0][0].height/1.3;
+			// }
+			// else if(Noah.y+(Noah.sprites[0][0].height/1.3) >= InBridge.y){
+			// 	if(Noah.x <= InBridge.x+1){
+			// 		Noah.x = InBridge.x+1;
+			// 	}
+			// 	else if((Noah.x+Noah.sprites[0][0].width/1.3) >= (InBridge.x+InBridge.sprite.width/5)){
+			// 		Noah.x = (InBridge.x+InBridge.sprite.width/5 -1)-Noah.sprites[0][0].width/1.3;
+			// 	}
+			// }
+			// else if(Noah.x+Noah.sprites[0][0].width/1.3 <= InBridge.x || Noah.x >= (InBridge.x+InBridge.sprite.width/5)){
+			// 	if(Noah.y > BigPlatform.y+BigPlatform.sprite.height/5 - 125){
+			// 		Noah.x = Noah.x;
+			// 		Noah.y = (BigPlatform.y+BigPlatform.sprite.height/5 - 125);
+			// 	}
+			// 	else if(Noah.y + Noah.sprites[0][0].height/1.3 >= RightBridge.y + RightBridge.sprite.height/5 || Noah.y+Noah.sprites[0][0].height/1.3 <= RightBridge.y){
+			// 		if(Noah.x <= BigPlatform.x-2 && (Noah.y+90 > RightBridge.y + RightBridge.sprite.height/5 || Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y)){
+			// 			console.log("Hey");
+			// 			Noah.x = BigPlatform.x-2;
+			// 		}
+			// 	}
+			// }
+			// else if(Noah.x < BigPlatform.x || Noah.x > BigPlatform.y+BigPlatform.sprite.height/5 && (Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y + 15) && Noah.y + Noah.sprites[0][0].height/1.3 > RightBridge.y - 15){
+			// 	if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y + 15){
+			// 		Noah.y = RightBridge.y + 15 - Noah.sprites[0][0].height/1.3;
+			// 	}
+			// }
 		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}

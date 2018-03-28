@@ -385,8 +385,16 @@ $(document).ready(function(){
 			if(Noah.y + Noah.sprites[0][0].height/1.3 < BigPlatform.y + 30){
 				Noah.y = BigPlatform.y + 30 -Noah.sprites[0][0].height/1.3;
 			}
-			if(Noah.y + Noah.sprites[0][0].height/1.3 > (BigPlatform.y + BigPlatform.sprite.height/5) - 40){
+			if(Noah.y + Noah.sprites[0][0].height/1.3 > (BigPlatform.y + BigPlatform.sprite.height/5) - 40 && (Noah.x > InBridge.x+InBridge.sprite.width/5 || Noah.x+Noah.sprites[0][0].width/1.3 < InBridge.x)){
 				Noah.y = BigPlatform.y + BigPlatform.sprite.height/5 - 40 - Noah.sprites[0][0].height/1.3;
+			}
+			else if(Noah.y + Noah.sprites[0][0].height/1.3 > InBridge.y){
+				if(Noah.x < InBridge.x + 5){
+					Noah.x = InBridge.x + 5;
+				}
+				else if(Noah.x + Noah.sprites[0][0].width/1.3 > InBridge.x+InBridge.sprite.width/5 - 8){
+					Noah.x = InBridge.x+InBridge.sprite.width/5 - 8 - Noah.sprites[0][0].width/1.3;
+				}
 			}
 			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y || Noah.y +Noah.sprites[0][0].height/1.3 > RightBridge.y + RightBridge.sprite.height/5){
 				if(Noah.x < BigPlatform.x-8){

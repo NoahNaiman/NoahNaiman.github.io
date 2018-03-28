@@ -385,64 +385,26 @@ $(document).ready(function(){
 			if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 30){
 				Noah.y = BigPlatform.y + 30 -Noah.sprites[0][0].height/1.3;
 			}
-			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y){
+			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y || Noah.y + + Noah.sprites[0][0].height/1.3 > RightBridge.y + RightBridge.sprite.height/5){
 				if(Noah.x < BigPlatform.x-8){
 					Noah.x = BigPlatform.x-8;
 				}
-
 			}
 			else if(Noah.x < BigPlatform.x-10){
+				console.log("3");
+
 				if(Noah.y + (Noah.sprites[0][0].height/1.3)/2 > RightBridge.y + 30){
 					Noah.y = RightBridge.y + 30 - (Noah.sprites[0][0].height/1.3)/2;
 				}
 				else if(Noah.y + (Noah.sprites[0][0].height/1.3)/2 < RightBridge.y-10){
-					console.log("Hello");
 					Noah.y = RightBridge.y - (Noah.sprites[0][0].height/1.3)/2 -10;
 				}
 			}
-			// if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y+20 && Noah.x < BigPlatform.x-8){
-			// 	Noah.x = BigPlatform.x-8;
-			// }
-			// else if(Noah.x < BigPlatform.x && Noah.y + (Noah.sprites[0][0].height/1.3)/2 < RightBridge.y+8){
-			// 	Noah.y = RightBridge.y+8 - (Noah.sprites[0][0].height/1.3)/2;
-			// }
-			// else if(Noah.x < InBridge.x && (Noah.y + Noah.sprites[0][0].height/1.3 + 20) > InBridge.y){
-			// 	Noah.x = InBridge.x;
-			// }
-			// else if(((Noah.x < InBridge.x) || (Noah.x > InBridge.x + InBridge.sprite.width/5)) && (Noah.y+Noah.sprites[0][0].height/1.3 > BigPlatform.y+BigPlatform.sprite.height/5)){
-			// 	Noah.y = BigPlatform.y+BigPlatform.sprite.height/5-Noah.sprites[0][0].height/1.3;
-			// }
-			// else if((Noah.x < InBridge.x) || ((Noah.x + Noah.sprites[0][0].width/1.3) > (InBridge.x + InBridge.sprite.width/5))){
-			// 	if((Noah.y + Noah.sprites[0][0].height/1.3 + 45) > (BigPlatform.y + BigPlatform.sprite.height/5)){
-			// 		Noah.y = BigPlatform.y + BigPlatform.sprite.height/5 - 45 - Noah.sprites[0][0].height/1.3;
-			// 	}
-			// }
-			// if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 40 && Noah.x >= BigPlatform.x-2){
-			// 	Noah.y = BigPlatform.y + 40 -Noah.sprites[0][0].height/1.3;
-			// }
-			// else if(Noah.y+(Noah.sprites[0][0].height/1.3) >= InBridge.y){
-			// 	if(Noah.x <= InBridge.x+1){
-			// 		Noah.x = InBridge.x+1;
-			// 	}
-			// 	else if((Noah.x+Noah.sprites[0][0].width/1.3) >= (InBridge.x+InBridge.sprite.width/5)){
-			// 		Noah.x = (InBridge.x+InBridge.sprite.width/5 -1)-Noah.sprites[0][0].width/1.3;
-			// 	}
-			// }
-			// else if(Noah.x+Noah.sprites[0][0].width/1.3 <= InBridge.x || Noah.x >= (InBridge.x+InBridge.sprite.width/5)){
-			// 	if(Noah.y > BigPlatform.y+BigPlatform.sprite.height/5 - 125){
-			// 		Noah.x = Noah.x;
-			// 		Noah.y = (BigPlatform.y+BigPlatform.sprite.height/5 - 125);
-			// 	}
-			// 	else if(Noah.y + Noah.sprites[0][0].height/1.3 >= RightBridge.y + RightBridge.sprite.height/5 || Noah.y+Noah.sprites[0][0].height/1.3 <= RightBridge.y){
-			// 		if(Noah.x <= BigPlatform.x-2 && (Noah.y+90 > RightBridge.y + RightBridge.sprite.height/5 || Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y)){
-			// 			console.log("Hey");
-			// 			Noah.x = BigPlatform.x-2;
-			// 		}
-			// 	}
-			// }
-			// else if(Noah.x < BigPlatform.x || Noah.x > BigPlatform.y+BigPlatform.sprite.height/5 && (Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y + 15) && Noah.y + Noah.sprites[0][0].height/1.3 > RightBridge.y - 15){
-			// 	if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y + 15){
-			// 		Noah.y = RightBridge.y + 15 - Noah.sprites[0][0].height/1.3;
+			// if(Noah.y > RightBridge.y + RightBridge.sprite.height/5){
+			// 	console.log("Hello");
+			// 	if(Noah.x < BigPlatform.x-10){
+			// 		console.log("Hello2");
+			// 		Noah.x = BigPlatform.x-10;
 			// 	}
 			// }
 		}

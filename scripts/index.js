@@ -385,14 +385,15 @@ $(document).ready(function(){
 			if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 30){
 				Noah.y = BigPlatform.y + 30 -Noah.sprites[0][0].height/1.3;
 			}
-			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y || Noah.y + + Noah.sprites[0][0].height/1.3 > RightBridge.y + RightBridge.sprite.height/5){
+			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y || Noah.y +Noah.sprites[0][0].height/1.3 > RightBridge.y + RightBridge.sprite.height/5){
 				if(Noah.x < BigPlatform.x-8){
 					Noah.x = BigPlatform.x-8;
 				}
+				else if(Noah.x + Noah.sprites[0][0].height/1.3 > (BigPlatform.x + BigPlatform.sprite.height/5) + 8){
+					Noah.x = (BigPlatform.x + BigPlatform.sprite.height/5) + 8 - Noah.sprites[0][0].height/1.3;
+				}
 			}
-			else if(Noah.x < BigPlatform.x-10){
-				console.log("3");
-
+			else if(Noah.x < BigPlatform.x-10 || Noah.x + Noah.sprites[0][0].height/1.3 > (BigPlatform.x + BigPlatform.sprite.height/5) + 8){
 				if(Noah.y + (Noah.sprites[0][0].height/1.3)/2 > RightBridge.y + 30){
 					Noah.y = RightBridge.y + 30 - (Noah.sprites[0][0].height/1.3)/2;
 				}
@@ -400,13 +401,6 @@ $(document).ready(function(){
 					Noah.y = RightBridge.y - (Noah.sprites[0][0].height/1.3)/2 -10;
 				}
 			}
-			// if(Noah.y > RightBridge.y + RightBridge.sprite.height/5){
-			// 	console.log("Hello");
-			// 	if(Noah.x < BigPlatform.x-10){
-			// 		console.log("Hello2");
-			// 		Noah.x = BigPlatform.x-10;
-			// 	}
-			// }
 		}
 		context.drawImage(Noah.sprites[row][col], Noah.x, Noah.y, Noah.sprites[row][col].width/1.3, Noah.sprites[row][col].height/1.3);
 	}

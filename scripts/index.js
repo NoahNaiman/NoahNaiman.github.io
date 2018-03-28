@@ -382,8 +382,11 @@ $(document).ready(function(){
 			}
 		}
 		else{
-			if(Noah.y + Noah.sprites[0][0].height/1.3 <= BigPlatform.y + 30){
+			if(Noah.y + Noah.sprites[0][0].height/1.3 < BigPlatform.y + 30){
 				Noah.y = BigPlatform.y + 30 -Noah.sprites[0][0].height/1.3;
+			}
+			if(Noah.y + Noah.sprites[0][0].height/1.3 > (BigPlatform.y + BigPlatform.sprite.height/5) - 40){
+				Noah.y = BigPlatform.y + BigPlatform.sprite.height/5 - 40 - Noah.sprites[0][0].height/1.3;
 			}
 			if(Noah.y + Noah.sprites[0][0].height/1.3 < RightBridge.y || Noah.y +Noah.sprites[0][0].height/1.3 > RightBridge.y + RightBridge.sprite.height/5){
 				if(Noah.x < BigPlatform.x-8){

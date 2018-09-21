@@ -155,11 +155,11 @@ $(document).ready(function(){
 											$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
 												Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 												Graduating class of 2020!<br><br>\
-												My passion is Cyber Security.<br><br>\
-												But my interests include IOT Vulnerabilites, Data Structures, and Algorithms.<br><br>\
+												My passion is Computer Systems.<br><br>\
+												But my interests include Cybersecurity, Software Design, and Brain Teaser.<br><br>\
 												I\'m from Denver, but I live in Boston.<br><br>\
 												Hobbies include writing, boxing, and making bad jokes.<br><br>\
-												Information Security intern at Monster.com, Summer 2018.<br><br>\
+												Currentl seeking an internship for summer 2019.<br><br>\
 												I can be reached at nnaiman@bu.edu<br><br>\
 												<a style="color: #2ad7f9;">\"You\'re only given a little spark of madness. You mustn\'t lose it.\"<br><br>\
 												&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
@@ -471,11 +471,11 @@ $(document).ready(function(){
 					$('body').append('<div id="about-me"><p>Hi, my name is Noah and I live inside my computer.<br><br>\
 							Pursuing my bachelor\'s degree in Computer Science at Boston University.<br><br>\
 							Graduating class of 2020!<br><br>\
-							My passion is Cyber Security.<br><br>\
-							But my interests include IOT Vulnerabilites, Data Structures,and Algorithms.<br><br>\
+							My passion is Computer Systems.<br><br>\
+							But my interests include Cybersecurity, Software Design, and Brain Teaser.<br><br>\
 							I\'m from Denver, but I live in Boston.<br><br>\
 							Hobbies include writing, boxing, and making bad jokes.<br><br>\
-							Information Security intern at Monster.com, Summer 2018.<br><br>\
+							Currently seeking an internship for summer 2019.<br><br>\
 							I can be reached at nnaiman@bu.edu<br><br>\
 							<a style="color: #2ad7f9;">\"You\'re only given a little spark of madness. You mustn\'t lose it.\"<br><br>\
 							&nbsp;&nbsp;&nbsp;-Robin Williams</a></p></div>');
